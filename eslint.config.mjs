@@ -16,6 +16,9 @@ export default defineConfig([
         "warn",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
+      //빈 블록 에러 규칙
+      "no-empty": "warn",
+
       "simple-import-sort/imports": "warn",
       "simple-import-sort/exports": "warn",
       "import/newline-after-import": "warn",
