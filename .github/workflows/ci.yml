@@ -18,8 +18,8 @@ jobs:
 
       - name: pnpm 설치
         uses: pnpm/action-setup@v5
-        wiht:
-        version: 10
+        with:
+          version: 10
 
       - name: Node.js 설치
         uses: actions/setup-node@v6
