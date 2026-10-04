@@ -1,6 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import prettierConfig from "eslint-config-prettier/flat";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 
 export default defineConfig([
@@ -21,5 +22,6 @@ export default defineConfig([
       "import/no-duplicates": "warn",
     },
   },
+  prettierConfig,
   globalIgnores([".next/**", "out/**", "next-env.d.ts"]),
 ]);
