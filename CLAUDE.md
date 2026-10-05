@@ -27,7 +27,7 @@
 - 브랜치 예시: `feature/#12, setting/#3`
 - 커밋 메세지: `타입: 내용` (ex. `feature: 프로젝트 카드 컴포넌트 추가`)
 - 타입: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `setting`
-- PR 제목: `[타입/#이슈번호] 내용` (ex. `[Setting/#3] 코드 품질 도구 세팅)
+- PR 제목: `[타입/#이슈번호] 내용` (ex. `[Setting/#3]` 코드 품질 도구 세팅)
 - 이슈와 PR 본문은 `.github`의 템플릿 양식을 따른다
 
 ## 코드
