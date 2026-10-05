@@ -5,10 +5,10 @@
 ## 기술 스택
 
 - Next.js 16 (App Router), React 19, TypeScript 5
-- 패키매니저: pnpm (npm, yarn 사용 금지)
+- 패키지 매니저: pnpm (npm, yarn 사용 금지)
 - 스타일링: vanilla-extract
 - 애니메이션: Motion, GSAP
-- ESLint, prettier, Husky + lint-staged, Github Actions CI
+- ESLint, Prettier, Husky + lint-staged, GitHub Actions CI
 
 ## 스타일링
 
