@@ -6,12 +6,13 @@
 
 - Next.js 16 (App Router), React 19, TypeScript 5
 - 패키매니저: pnpm (npm, yarn 사용 금지)
+- 스타일링: vanilla-extract
+- 애니메이션: Motion, GSAP
 - ESLint, prettier, Husky + lint-staged, Github Actions CI
 
-## 도입 예정 스택 (도입 뒤에만 규칙 적용 / 미도입시 임의 설치 및 사용 금지)
+## 스타일링
 
-- vanila extract, Framer Motion, GSAP
-- vanilla extract 도입 후: 색과 간격은 정의된 토큰만 사용하고, 인라인 `style`이나 하드코딩한 색상 값은 쓰지 않는다
+색과 간격은 정의된 토큰만 사용하고, 인라인 `style`이나 하드코딩한 색상 값은 쓰지 않는다
 
 ## 명령어
 
