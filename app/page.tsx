@@ -1,6 +1,7 @@
 import * as motion from "motion/react-client";
 
 import * as styles from "./page.css";
+import { PinTest } from "./PinTest";
 
 export default function Page() {
   return (
@@ -24,6 +25,7 @@ export default function Page() {
       >
         test중
       </motion.p>
+      <PinTest />
     </>
   );
 }
