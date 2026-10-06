@@ -1,13 +1,9 @@
 import * as motion from "motion/react-client";
 
-import * as styles from "./page.css";
-import { PinTest } from "./PinTest";
-
 export default function Page() {
   return (
     <>
       <motion.h1
-        className={styles.title}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -17,7 +13,6 @@ export default function Page() {
       </motion.h1>
 
       <motion.p
-        className={styles.discription}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}
@@ -25,7 +20,6 @@ export default function Page() {
       >
         test중
       </motion.p>
-      <PinTest />
     </>
   );
 }
