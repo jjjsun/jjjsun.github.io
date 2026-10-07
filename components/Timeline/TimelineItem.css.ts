@@ -10,7 +10,7 @@ const accent = createVar();
 
 const CATEGORY_COLOR: Record<TTimelineCategory, string> = {
   "수상 & 자격": vars.color.category.awards.main,
-  "Projects & 동아리": vars.color.category.projects.main,
+  "Projects & 활동": vars.color.category.projects.main,
   "Work": vars.color.category.work.main,
 };
 
