@@ -103,6 +103,8 @@ export const vars = createGlobalTheme(":root", {
     heroBlob1: "rgba(255,255,255,.45)",
     heroBlob2: "rgba(150,200,243,.75)",
     heroBlob3: "rgba(120,175,236,.6)",
+    brand: "linear-gradient(135deg,#2a5bd7,#5b8ff0)",
+    pillSurfaceHover: "linear-gradient(135deg,#ffffff,#d6e6fa)",
   },
 
   font: {
@@ -142,6 +144,7 @@ export const vars = createGlobalTheme(":root", {
       tight: "-.02em",
       label: ".16em",
       eyebrow: ".14em",
+      logo: ".06em",
     },
   },
 
@@ -162,6 +165,7 @@ export const vars = createGlobalTheme(":root", {
     pill: "0 0 0 1px rgba(42,91,215,.18), 0 6px 18px rgba(42,91,215,.10)",
     lg: "0 0 0 1px rgba(20,33,58,.07), 0 24px 60px rgba(40,80,140,.14)",
     modal: "0 0 0 1px rgba(20,33,58,.08), 0 40px 100px rgba(20,40,80,.3)",
+    pillHover: "0 0 0 1px rgba(42,91,215,.18), 0 6px 18px rgba(42,91,215,.22)",
   },
 
   blur: { header: "14px", scrim: "8px", heroBlob: "60px" },

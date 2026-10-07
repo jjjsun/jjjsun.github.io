@@ -20,6 +20,7 @@ globalStyle("body", {
   color: vars.color.text.strong,
   background: vars.color.bg.page,
   WebkitFontSmoothing: "antialiased",
+  paddingTop: vars.layout.headerHeight,
 });
 
 globalStyle("a", { color: "inherit", textDecoration: "none" });
