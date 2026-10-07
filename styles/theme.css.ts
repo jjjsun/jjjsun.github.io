@@ -108,7 +108,9 @@ export const vars = createGlobalTheme(":root", {
   },
 
   font: {
-    family: { sans: '"Inter", "Pretendard Variable", system-ui, sans-serif' },
+    family: {
+      sans: "var(--font-inter), var(--font-pretendard), system-ui, sans-serif",
+    },
     weight: { medium: "500", semibold: "600", bold: "700" },
     size: {
       // 화면 폭에 따라 변하는 큰 글자
