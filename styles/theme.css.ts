@@ -109,7 +109,7 @@ export const vars = createGlobalTheme(":root", {
 
   font: {
     family: {
-      sans: "var(--font-inter), var(--font-pretendard) system-ui, sans-serif",
+      sans: "var(--font-inter), var(--font-pretendard), system-ui, sans-serif",
     },
     weight: { medium: "500", semibold: "600", bold: "700" },
     size: {
