@@ -9,7 +9,7 @@ const PROJECTS: IProject[] = [
     summary: "온라인 광고 성과 모니터링/분석 B2B 웹 플랫폼",
     metric: "워크스페이스 • 알림 • 타임라인 FE 개발 + 팀 리딩",
     role: "Team Leader, Frontend",
-    stack: ["React", "TypeScript", "TailwindCSS", "ApexChars", "Storybook"],
+    stack: ["React", "TypeScript", "TailwindCSS", "ApexCharts", "Storybook"],
   },
   {
     name: "Eatsfine",
