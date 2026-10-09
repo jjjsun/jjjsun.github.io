@@ -27,6 +27,9 @@ export const number = style({
 export const questionText = style({
   fontSize: vars.font.size.titleM,
   lineHeight: vars.font.lineHeight.snug,
+  wordBreak: "keep-all",
+  overflowWrap: "break-word",
+  textWrap: "pretty",
 });
 
 //TODO: 현재는 열린 상태로 고정. 애니메이션 구현 단계에서 trnasform을 motion으로 제어 예정
@@ -58,4 +61,7 @@ export const answerText = style({
   fontSize: vars.font.size.md,
   lineHeight: vars.font.lineHeight.loose,
   color: vars.color.text.body,
+  wordBreak: "keep-all",
+  overflowWrap: "break-word",
+  textWrap: "pretty",
 });
