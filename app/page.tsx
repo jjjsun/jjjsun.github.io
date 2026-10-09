@@ -1,4 +1,5 @@
 import About from "@/components/About/About";
+import FAQ from "@/components/FAQ/FAQ";
 import Hero from "@/components/Hero/Hero";
 import Projects from "@/components/Projects/Projects";
 import Timeline from "@/components/Timeline/Timeline";
@@ -10,6 +11,7 @@ export default function Page() {
       <About />
       <Projects />
       <Timeline />
+      <FAQ />
     </>
   );
 }
