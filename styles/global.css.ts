@@ -9,8 +9,10 @@ globalStyle("*, *::before, *::after", {
 });
 
 globalStyle("html", {
-  scrollBehavior: "smooth",
-  WebkitTextSizeAdjust: "100%",
+  "WebkitTextSizeAdjust": "100%",
+  "@media": {
+    "(prefers-reduced-motion: no-preference)": { scrollBehavior: "smooth" },
+  },
 });
 
 globalStyle("body", {
