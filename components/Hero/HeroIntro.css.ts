@@ -2,16 +2,23 @@ import { style } from "@vanilla-extract/css";
 
 import { breakpoint, vars } from "@/styles/theme.css";
 
+import { PINNED_QUERY } from "./Hero.css";
+
 const mobile = `screen and (max-width: ${breakpoint.mobile})`;
 
+const pinned = `screen and ${PINNED_QUERY}`;
+
 export const intro = style({
-  position: "relative",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  gap: vars.space[24],
-  padding: `${vars.space[24]} ${vars.layout.pageX} ${vars.space[72]}`,
-  textAlign: "center",
+  "position": "relative",
+  "display": "flex",
+  "flexDirection": "column",
+  "alignItems": "center",
+  "gap": vars.space[24],
+  "padding": `${vars.space[24]} ${vars.layout.pageX} ${vars.space[72]}`,
+  "textAlign": "center",
+  "@media": {
+    [pinned]: { height: "100%", justifyContent: "center" },
+  },
 });
 
 export const label = style({
