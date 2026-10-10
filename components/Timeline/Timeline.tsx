@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal/Reveal";
+
 import * as styles from "./Timeline.css";
 import TimelineItem, { ITimelineItem } from "./TimelineItem";
 
@@ -44,7 +46,7 @@ const TIMELINE: ITimelineItem[] = [
 export default function Timeline() {
   return (
     <section id="timeline" className={styles.timeline}>
-      <div className={styles.container}>
+      <Reveal className={styles.container}>
         <header className={styles.header}>
           <p className={styles.label}>TIMELINE • 연혁</p>
           <h2 className={styles.title}>2022년부터 지금까지</h2>
@@ -54,7 +56,7 @@ export default function Timeline() {
             <TimelineItem key={item.title} item={item} />
           ))}
         </ul>
-      </div>
+      </Reveal>
     </section>
   );
 }

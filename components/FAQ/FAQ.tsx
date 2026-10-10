@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal/Reveal";
+
 import * as styles from "./FAQ.css";
 import FAQItem, { IFaq } from "./FAQItem";
 
@@ -37,7 +39,7 @@ const FAQS: IFaq[] = [
 export default function FAQ() {
   return (
     <section id="faq" className={styles.faq}>
-      <div className={styles.container}>
+      <Reveal className={styles.container}>
         <header className={styles.header}>
           <p className={styles.label}>FAQ • 인터뷰</p>
           <h2 className={styles.title}>코드에는 없는 이야기</h2>
@@ -48,7 +50,7 @@ export default function FAQ() {
             <FAQItem key={item.question} item={item} index={index} />
           ))}
         </ul>
-      </div>
+      </Reveal>
     </section>
   );
 }
