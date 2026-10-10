@@ -12,6 +12,7 @@ export default function HeaderShell({ children }: { children: React.ReactNode })
   const { scrollY } = useScroll();
   const shouldReduceMotion = useReducedMotion();
   const [isHidden, setIsHidden] = useState(false);
+  const [isFocusWithin, setIsFocusWithin] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (current) => {
     //최상단 근처에서는 항상 표시
@@ -29,9 +30,17 @@ export default function HeaderShell({ children }: { children: React.ReactNode })
     <motion.header
       className={styles.header}
       initial={false}
-      animate={{ y: isHidden ? "-100%" : 0 }}
+      animate={{ y: isHidden && !isFocusWithin ? "-100%" : 0 }}
       transition={{ duration: shouldReduceMotion ? 0 : 0.45, ease: "easeInOut" }}
-      onFocusCapture={() => setIsHidden(false)}
+      onFocusCapture={() => {
+        setIsFocusWithin(true);
+        setIsHidden(false);
+      }}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setIsFocusWithin(false);
+        }
+      }}
     >
       {children}
     </motion.header>
