@@ -24,22 +24,24 @@ export const label = style({
 });
 
 export const button = style({
-  "display": "inline-flex",
-  "alignItems": "center",
-  "gap": vars.space[12],
-  "padding": `${vars.space[4]} ${vars.space[4]} ${vars.space[4]} ${vars.space[20]}`,
-  "borderRadius": vars.radius.pill,
-  "fontSize": vars.font.size.sm,
-  "fontWeight": vars.font.weight.medium,
-  "color": vars.color.text.strong,
-  "whiteSpace": "nowrap",
-  "textDecoration": "none",
-  "background": vars.gradient.pillSurface,
-  "boxShadow": vars.shadow.pill,
-  "transition": `background ${vars.motion.duration.base}, box-shadow ${vars.motion.duration.base}`,
-  ":hover": {
-    background: vars.gradient.pillSurfaceHover,
-    boxShadow: vars.shadow.pillHover,
+  display: "inline-flex",
+  alignItems: "center",
+  gap: vars.space[12],
+  padding: `${vars.space[4]} ${vars.space[4]} ${vars.space[4]} ${vars.space[20]}`,
+  borderRadius: vars.radius.pill,
+  fontSize: vars.font.size.sm,
+  fontWeight: vars.font.weight.medium,
+  color: vars.color.text.strong,
+  whiteSpace: "nowrap",
+  textDecoration: "none",
+  background: vars.gradient.pillSurface,
+  boxShadow: vars.shadow.pill,
+  transition: `background ${vars.motion.duration.base}, box-shadow ${vars.motion.duration.base}`,
+  selectors: {
+    "&:is(:hover, :focus-visible)": {
+      background: vars.gradient.pillSurfaceHover,
+      boxShadow: vars.shadow.pillHover,
+    },
   },
 });
 

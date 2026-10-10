@@ -15,9 +15,11 @@ export const link = style({
   "color": vars.color.text.strong,
   "textDecoration": "none",
   "transition": `background ${vars.motion.duration.fast}, padding ${vars.motion.duration.fast}`,
-  ":hover": {
-    background: vars.color.bg.hover,
-    paddingLeft: vars.space[16],
+  "selectors": {
+    "&:is(:hover, :focus-visible)": {
+      background: vars.color.bg.hover,
+      paddingLeft: vars.space[16],
+    },
   },
   "::after": {
     content: '""',
