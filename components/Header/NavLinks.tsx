@@ -41,7 +41,7 @@ export default function NavLinks() {
             <Link
               href={`#${id}`}
               className={styles.link}
-              aria-current={activeId === id ? "page" : undefined}
+              aria-current={activeId === id ? "location" : undefined}
             >
               {label} <span className={styles.ko}>{ko}</span>
             </Link>
