@@ -3,6 +3,8 @@ import { createGlobalTheme } from "@vanilla-extract/css";
 // @media 안에서는 CSS 변수를 못 쓰므로 vars와 별도로 export
 export const breakpoint = {
   mobile: "820px",
+  tablet: "1000px",
+  narrow: "560px",
 };
 
 export const vars = createGlobalTheme(":root", {
@@ -13,6 +15,7 @@ export const vars = createGlobalTheme(":root", {
       light: "#5b8ff0",
       soft: "#7fb2ee",
       pale: "#9cc3f2",
+      dim: "rgba(42,91,215,.35)",
     },
     text: {
       strong: "#14213a",
@@ -35,6 +38,8 @@ export const vars = createGlobalTheme(":root", {
       mediaDark: "#0f1726",
       mediaDark2: "#22324f",
       scrim: "rgba(20,33,58,.36)",
+      hover: "rgba(255,255,255,.28)",
+      hoverStrong: "rgba(255,255,255,.45)",
     },
     border: {
       subtle: "rgba(20,33,58,.08)",
