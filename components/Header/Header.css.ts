@@ -79,8 +79,8 @@ export const link = style({
   },
 
   "selectors": {
-    '&[aria-current="page"]': { color: vars.color.brand.primary },
-    '&[aria-current="page"]::after': { opacity: 1 },
+    '&[aria-current="location"]': { color: vars.color.brand.primary },
+    '&[aria-current="location"]::after': { opacity: 1 },
     "&:focus-visible": {
       outline: `2px solid ${vars.color.brand.primary}`,
       outlineOffset: "4px",
@@ -93,7 +93,7 @@ export const ko = style({
   color: vars.color.text.disabled,
 
   selectors: {
-    [`${link}[aria-current="page"] &`]: { color: vars.color.brand.primary },
+    [`${link}[aria-current="location"] &`]: { color: vars.color.brand.primary },
   },
 });
 
