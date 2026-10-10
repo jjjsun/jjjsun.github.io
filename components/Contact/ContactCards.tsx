@@ -6,16 +6,16 @@ const CONTACTS: IContact[] = [
   { id: "email", name: "Email", description: "메일 보내기", href: `mailto:${EMAIL}` },
   { id: "github", name: "Github", description: "코드 보기", href: GITHUB_URL },
   {
-    id: "velog",
-    name: "Velog",
-    description: "기술 회고 읽기",
-    href: VELOG_URL,
-  },
-  {
     id: "linkedin",
     name: "LinkedIn",
     description: "경력 보기",
     href: LINKEDIN_URL,
+  },
+  {
+    id: "velog",
+    name: "Velog",
+    description: "기술 회고 읽기",
+    href: VELOG_URL,
   },
 ];
 
