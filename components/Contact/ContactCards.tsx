@@ -1,10 +1,10 @@
-import { VELOG_URL } from "./constants";
+import { EMAIL, GITHUB_URL, LINKEDIN_URL, VELOG_URL } from "./constants";
 import ContactCard, { IContact } from "./ContactCard";
 import * as styles from "./ContactCards.css";
 
 const CONTACTS: IContact[] = [
-  { id: "email", name: "Email", description: "메일 보내기", href: "mailto:ddorri83@naver.com" },
-  { id: "github", name: "Github", description: "코드 보기", href: "https://github.com/jjjsun" },
+  { id: "email", name: "Email", description: "메일 보내기", href: `mailto:${EMAIL}` },
+  { id: "github", name: "Github", description: "코드 보기", href: GITHUB_URL },
   {
     id: "velog",
     name: "Velog",
@@ -15,7 +15,7 @@ const CONTACTS: IContact[] = [
     id: "linkedin",
     name: "LinkedIn",
     description: "경력 보기",
-    href: "https://www.linkedin.com/in/%EC%9E%AC%EC%84%A0-%EB%B0%95-4507b4363/",
+    href: LINKEDIN_URL,
   },
 ];
 
