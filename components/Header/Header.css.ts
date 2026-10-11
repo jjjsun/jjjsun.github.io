@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { breakpoint, vars } from "@/styles/theme.css";
+import { breakpoint, media, vars } from "@/styles/theme.css";
 
 const mobile = `screen and (max-width: ${breakpoint.mobile})`;
 
@@ -63,7 +63,7 @@ export const link = style({
   "alignItems": "baseline",
   "gap": vars.space[8],
   "color": vars.color.text.strong,
-  "transition": `color ${vars.motion.duration.fast}`,
+  "transition": `color ${vars.motion.duration.fast} ${vars.motion.easing.out}`,
 
   //활성화된 상태 표시 밑줄
   "::after": {
@@ -75,7 +75,7 @@ export const link = style({
     height: "2px",
     background: vars.color.brand.primary,
     opacity: 0,
-    transition: `opacity ${vars.motion.duration.fast}`,
+    transition: `opacity ${vars.motion.duration.fast} ${vars.motion.easing.out}`,
   },
 
   "selectors": {
@@ -98,23 +98,22 @@ export const ko = style({
 });
 
 export const resume = style({
-  justifySelf: "end",
-  display: "inline-flex",
-  alignItems: "center",
-  gap: vars.space[8],
-  padding: `${vars.space[4]} ${vars.space[8]} ${vars.space[4]} ${vars.space[16]}`,
-  borderRadius: vars.radius.pill,
-  fontSize: vars.font.size.sm,
-  fontWeight: vars.font.weight.medium,
-  color: vars.color.text.strong,
-  whiteSpace: "nowrap",
-  background: vars.gradient.pillSurface,
-  boxShadow: vars.shadow.pill,
-  transition: `transform ${vars.motion.duration.base} ${vars.motion.easing.out}, box-shadow ${vars.motion.duration.base}`,
+  "justifySelf": "end",
+  "display": "inline-flex",
+  "alignItems": "center",
+  "gap": vars.space[8],
+  "padding": `${vars.space[4]} ${vars.space[8]} ${vars.space[4]} ${vars.space[16]}`,
+  "borderRadius": vars.radius.pill,
+  "fontSize": vars.font.size.sm,
+  "fontWeight": vars.font.weight.medium,
+  "color": vars.color.text.strong,
+  "whiteSpace": "nowrap",
+  "background": vars.gradient.pillSurface,
+  "boxShadow": vars.shadow.pill,
+  "transition": `transform ${vars.motion.duration.base} ${vars.motion.easing.out}, box-shadow ${vars.motion.duration.fast} ${vars.motion.easing.out}`,
 
-  selectors: {
-    "&:hover": {
-      transform: "translateY(-1px)",
+  "selectors": {
+    "&:is(:hover, :focus-visible)": {
       boxShadow: vars.shadow.pillHover,
       background: vars.gradient.pillSurfaceHover,
     },
@@ -123,20 +122,31 @@ export const resume = style({
       outlineOffset: "4px",
     },
   },
+  "@media": {
+    [media.hoverMotion]: {
+      selectors: {
+        "&:is(:hover, :focus-visible)": { transform: "translateY(-1px)" },
+      },
+    },
+  },
 });
 
 export const resumeIcon = style({
-  display: "grid",
-  placeItems: "center",
-  width: "28px",
-  height: "28px",
-  borderRadius: vars.radius.circle,
-  color: vars.color.bg.surface,
-  background: vars.gradient.brand,
-  transition: `transform ${vars.motion.duration.medium} ${vars.motion.easing.spring}`,
+  "display": "grid",
+  "placeItems": "center",
+  "width": "28px",
+  "height": "28px",
+  "borderRadius": vars.radius.circle,
+  "color": vars.color.bg.surface,
+  "background": vars.gradient.brand,
+  "transition": `transform ${vars.motion.duration.medium} ${vars.motion.easing.spring}`,
 
-  selectors: {
-    // 부모 버튼에 hover하면 아이콘이 아래로 살짝 내려감
-    [`${resume}:hover &`]: { transform: "translateY(2px)" },
+  "@media": {
+    [media.hoverMotion]: {
+      selectors: {
+        // 부모 버튼에 hover/focus하면 아이콘이 아래로 살짝 내려감
+        [`${resume}:is(:hover, :focus-visible) &`]: { transform: "translateY(2px)" },
+      },
+    },
   },
 });

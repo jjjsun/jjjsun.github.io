@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { breakpoint, vars } from "@/styles/theme.css";
+import { breakpoint, media, vars } from "@/styles/theme.css";
 
 const mobile = `screen and (max-width: ${breakpoint.mobile})`;
 
@@ -14,11 +14,10 @@ export const link = style({
   "borderRadius": vars.radius.lg,
   "color": vars.color.text.strong,
   "textDecoration": "none",
-  "transition": `background ${vars.motion.duration.fast}, padding ${vars.motion.duration.fast}`,
+  "transition": `background ${vars.motion.duration.fast} ${vars.motion.easing.out}, padding ${vars.motion.duration.base} ${vars.motion.easing.out}`,
   "selectors": {
     "&:is(:hover, :focus-visible)": {
       background: vars.color.bg.hover,
-      paddingLeft: vars.space[16],
     },
   },
   "::after": {
@@ -33,6 +32,11 @@ export const link = style({
   "@media": {
     [mobile]: {
       gridTemplateColumns: "minmax(0, 1fr)",
+    },
+    [media.hoverMotion]: {
+      selectors: {
+        "&:is(:hover, :focus-visible)": { paddingLeft: vars.space[16] },
+      },
     },
   },
 });

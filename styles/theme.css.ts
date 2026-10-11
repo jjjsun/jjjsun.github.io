@@ -7,6 +7,12 @@ export const breakpoint = {
   narrow: "560px",
 };
 
+// @media 안에서는 CSS 변수를 못 쓰므로 별도 export
+export const media = {
+  //이동/회전 hover는 마우스환경+모션 허용일때만
+  hoverMotion: "(hover: hover) and (prefers-reduced-motion: no-preference)",
+};
+
 export const vars = createGlobalTheme(":root", {
   color: {
     brand: {
