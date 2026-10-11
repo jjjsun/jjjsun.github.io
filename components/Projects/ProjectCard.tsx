@@ -1,4 +1,7 @@
+import Image from "next/image";
+
 import * as styles from "./ProjectCard.css";
+import ProjectModal from "./ProjectModal";
 
 export interface IProject {
   name: string;
@@ -8,6 +11,9 @@ export interface IProject {
   metric: string;
   role: string;
   stack: string[];
+  description: string;
+  videoUrl: string;
+  thumbnail: string;
 }
 
 type TProjectCardProps = {
@@ -17,7 +23,7 @@ type TProjectCardProps = {
 };
 
 export default function ProjectCard({ project, index, total }: TProjectCardProps) {
-  const { name, period, org, summary, metric, role, stack } = project;
+  const { name, period, org, summary, metric, role, stack, thumbnail } = project;
   const pad = (n: number) => String(n).padStart(2, "0");
   return (
     <article className={styles.card}>
@@ -30,7 +36,7 @@ export default function ProjectCard({ project, index, total }: TProjectCardProps
             {period} • {org}
           </span>
         </p>
-        <h3 className={styles.name}>{name}</h3>
+        <ProjectModal project={project} />
         <p className={styles.summary}>{summary}</p>
         <div className={styles.metricBox}>
           <p className={styles.metricLabel}>핵심 성과</p>
@@ -48,10 +54,14 @@ export default function ProjectCard({ project, index, total }: TProjectCardProps
         </dl>
         <p className={styles.hint}>카드를 누르면 상세 내용을 볼 수 있어요</p>
       </div>
-      {/* TODO: 실제 이미지가 생기면 next/image로 교체, 모달 단계에서 button으로 변경 */}
-      <div className={styles.thumbnail} aria-hidden="true">
-        <span className={styles.thumbnailTag}>THUMBNAIL</span>
-        <span className={styles.thumbnailCaption}>{name} 대표 화면</span>
+      <div className={styles.thumbnail}>
+        <Image
+          src={thumbnail}
+          alt={`${name} 대표 화면`}
+          fill
+          sizes="(max-width:820px) 100vw, 700px"
+          className={styles.thumbnailImage}
+        />
       </div>
     </article>
   );
