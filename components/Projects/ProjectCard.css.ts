@@ -5,6 +5,7 @@ import { breakpoint, vars } from "@/styles/theme.css";
 const mobile = `screen and (max-width: ${breakpoint.mobile})`;
 
 export const card = style({
+  "position": "relative",
   "display": "grid",
   "gridTemplateColumns": "5fr 7fr",
   "gap": vars.space[72],
@@ -109,26 +110,13 @@ export const hint = style({
 });
 
 export const thumbnail = style({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "flex-end",
-  gap: vars.space[4],
+  position: "relative",
+  overflow: "hidden",
   aspectRatio: "16 / 10",
-  padding: vars.space[20],
   borderRadius: vars.radius["2xl"],
   boxShadow: vars.shadow.lg,
-  background: `repeating-linear-gradient(135deg, ${vars.color.bg.surface} 0 16px, ${vars.color.bg.sky400} 16px 32px)`,
 });
 
-export const thumbnailTag = style({
-  fontSize: vars.font.size.xs,
-  fontWeight: vars.font.weight.bold,
-  letterSpacing: vars.font.letterSpacing.eyebrow,
-  color: vars.color.brand.primary,
-});
-
-export const thumbnailCaption = style({
-  fontSize: vars.font.size.md,
-  fontWeight: vars.font.weight.semibold,
-  color: vars.color.text.heading,
+export const thumbnailImage = style({
+  objectFit: "cover",
 });
