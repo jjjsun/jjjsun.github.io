@@ -1,6 +1,6 @@
 import { createVar, style, styleVariants } from "@vanilla-extract/css";
 
-import { vars } from "@/styles/theme.css";
+import { media, vars } from "@/styles/theme.css";
 
 const hoverGradient = createVar();
 const hoverColor = createVar();
@@ -20,6 +20,9 @@ export const tone = styleVariants(TONES, ({ main, gradient }) => ({
   },
 }));
 
+const fast = `${vars.motion.duration.fast} ${vars.motion.easing.out}`;
+const base = `${vars.motion.duration.base} ${vars.motion.easing.out}`;
+
 export const card = style({
   display: "flex",
   alignItems: "center",
@@ -29,7 +32,7 @@ export const card = style({
   textAlign: "left",
   color: vars.color.text.strong,
   textDecoration: "none",
-  transition: `background ${vars.motion.duration.base}`,
+  transition: `background ${fast}`,
   selectors: {
     "&:is(:hover, :focus-visible)": {
       background: vars.color.bg.hoverStrong,
@@ -38,20 +41,29 @@ export const card = style({
 });
 
 export const icon = style({
-  flex: "none",
-  display: "grid",
-  placeItems: "center",
-  width: "52px",
-  height: "52px",
-  borderRadius: vars.radius.circle,
-  color: vars.color.brand.primary,
-  background: vars.gradient.pillSurfaceHover,
-  boxShadow: vars.shadow.sm,
-  transition: `background ${vars.motion.duration.base}, color ${vars.motion.duration.base}`,
-  selectors: {
+  "flex": "none",
+  "display": "grid",
+  "placeItems": "center",
+  "width": "52px",
+  "height": "52px",
+  "borderRadius": vars.radius.circle,
+  "color": vars.color.brand.primary,
+  "background": vars.gradient.pillSurfaceHover,
+  "boxShadow": vars.shadow.sm,
+  "transition": `background ${fast}, color ${base}, transform ${base}`,
+  "selectors": {
     [`${card}:is(:hover, :focus-visible) &`]: {
       color: vars.color.bg.surface,
       background: hoverGradient,
+    },
+  },
+  "@media": {
+    [media.hoverMotion]: {
+      selectors: {
+        [`${card}:is(:hover, :focus-visible) &`]: {
+          transform: "translateY(-2px) rotate(-8deg)",
+        },
+      },
     },
   },
 });
@@ -98,7 +110,7 @@ export const arrow = style({
   fontSize: vars.font.size.lg,
   color: vars.color.brand.primary,
   opacity: 0.35,
-  transition: `opacity ${vars.motion.duration.base}, color ${vars.motion.duration.base}`,
+  transition: `opacity ${fast}, color ${base}`,
   selectors: {
     [`${card}:is(:hover, :focus-visible) &`]: {
       color: hoverColor,

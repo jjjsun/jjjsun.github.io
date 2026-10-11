@@ -36,7 +36,7 @@ export const button = style({
   textDecoration: "none",
   background: vars.gradient.pillSurface,
   boxShadow: vars.shadow.pill,
-  transition: `background ${vars.motion.duration.base}, box-shadow ${vars.motion.duration.base}`,
+  transition: `background ${vars.motion.duration.fast} ${vars.motion.easing.out}, box-shadow ${vars.motion.duration.fast} ${vars.motion.easing.out}`,
   selectors: {
     "&:is(:hover, :focus-visible)": {
       background: vars.gradient.pillSurfaceHover,
