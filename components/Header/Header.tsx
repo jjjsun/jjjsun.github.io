@@ -5,7 +5,8 @@ import HeaderShell from "./HeaderShell";
 import NavLinks from "./NavLinks";
 
 //TODO: 이력서 PDF를 public/에 넣어서 실제 경로로 추후 교체하기
-const RESUME_HREF = "#";
+//TODO: 이력서 준비되면 아래 이력서 버튼 주석 해제 예정
+// const RESUME_HREF = "#";
 
 export default function Header() {
   return (
@@ -14,7 +15,7 @@ export default function Header() {
         JAESEON
       </Link>
       <NavLinks />
-      <a href={RESUME_HREF} className={styles.resume}>
+      {/* <a href={RESUME_HREF} className={styles.resume}>
         이력서 PDF
         <span className={styles.resumeIcon}>
           <svg
@@ -31,7 +32,7 @@ export default function Header() {
             <path d="M12 4v11M7 11l5 5 5-5M5 20h14" />
           </svg>
         </span>
-      </a>
+      </a> */}
     </HeaderShell>
   );
 }
