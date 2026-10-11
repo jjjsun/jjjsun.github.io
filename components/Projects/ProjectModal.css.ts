@@ -7,6 +7,10 @@ const mobile = `screen and (max-width: ${breakpoint.mobile})`;
 // 모달이 열려 있는 동안 배경 스크롤 잠금
 globalStyle("body:has(dialog[open])", { overflow: "hidden" });
 
+const REDUCE_MOTION = "(prefers-reduced-motion: reduce)";
+const FLIP_HIDDEN = "perspective(1600px) rotateY(-75deg)";
+const FLIP_SHOWN = "perspective(1600px) rotateY(0)";
+
 export const trigger = style({
   textAlign: "left",
   letterSpacing: "inherit",
@@ -37,16 +41,43 @@ export const dialog = style({
   "background": vars.color.bg.surface,
   "color": vars.color.text.body,
   "boxShadow": vars.shadow.modal,
+  "opacity": 0,
+  "transform": FLIP_HIDDEN,
+  // display/overlay를 allow-discrete로 묶어야 transition이 끝난 뒤에 숨겨지고 top layer에서 빠짐
+  "transition": [
+    `opacity ${vars.motion.duration.base} ${vars.motion.easing.out}`,
+    `transform ${vars.motion.duration.medium} ${vars.motion.easing.out}`,
+    `display ${vars.motion.duration.medium} allow-discrete`,
+    `overlay ${vars.motion.duration.medium} allow-discrete`,
+  ].join(", "),
   "selectors": {
     // display는 [open]일 때만 지정해야 닫힌 dialog가 숨겨진 채로 유지됨
     "&[open]": {
-      display: "grid",
-      gridTemplateColumns: vars.layout.modalColumns,
-      gridTemplateRows: "minmax(0, 1fr)",
+      "display": "grid",
+      "gridTemplateColumns": vars.layout.modalColumns,
+      "gridTemplateRows": "minmax(0, 1fr)",
+      "opacity": 1,
+      "transform": FLIP_SHOWN,
+      //showModal() 직후 출발점
+      "@starting-style": {
+        opacity: 0,
+        transform: FLIP_HIDDEN,
+      },
     },
     "&::backdrop": {
       background: vars.color.bg.scrim,
       backdropFilter: `blur(${vars.blur.scrim})`,
+      opacity: 0,
+      // dialog의 transition은 ::backdrop에 상속되지 않아서 따로 지정
+      transition: [
+        `opacity ${vars.motion.duration.base} ${vars.motion.easing.out}`,
+        `display ${vars.motion.duration.base} allow-discrete`,
+        `overlay ${vars.motion.duration.base} allow-discrete`,
+      ].join(", "),
+    },
+    "&[open]::backdrop": {
+      "opacity": 1,
+      "@starting-style": { opacity: 0 },
     },
   },
   "@media": {
@@ -57,6 +88,12 @@ export const dialog = style({
           gridTemplateColumns: "1fr",
           gridTemplateRows: "auto",
         },
+      },
+    },
+    [REDUCE_MOTION]: {
+      transition: "none",
+      selectors: {
+        "&::backdrop": { transition: "none" },
       },
     },
   },
