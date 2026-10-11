@@ -1,0 +1,57 @@
+language: "ko-KR"
+
+tone_instructions: >
+  한국어로, 옆자리 동료가 봐주듯 친근하고 가볍게 해요체로 리뷰. 잘한 부분은 가볍게 칭찬하고, 수정할 부분은 짚고, 이유를 자세하게 덧붙이기.
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: true
+  sequence_diagrams: false
+  changed_files_summary: true
+
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - "main"
+
+  # 제외 패턴만 유지 (루트 설정 파일도 리뷰 대상에 포함)
+  path_filters:
+    - "!pnpm-lock.yaml"
+    - "!**/*.svg"
+
+  path_instructions:
+    - path: "**/*"
+      instructions: |
+        Next.js(App Router) + React + TypeScript 포트폴리오 프로젝트.
+        우선순위: 버그, 안정성, 접근성, 성능, 구조.
+        포맷/스타일(ESLint·Prettier가 잡는 것)은 중복 지적하지 말 것.
+        문제마다 근거 + 가능하면 수정 예시 코드.
+        추측이면 추측이라고 밝히기.
+        Next.js breaking change는 package.json의 설치된 next 버전과
+        해당 버전의 공식 migration/upgrade 문서를 기준으로 평가할 것.
+    - path: "app/**"
+      instructions: |
+        Next.js App Router 디렉토리입니다.
+        Server/Client Component 경계, 라우팅/레이아웃 부작용을 확인.
+        불필요하게 'use client'가 선언되지 않았는지 확인 (Server Components 우선 사용).
+        page.tsx, layout.tsx, loading.tsx, error.tsx 구조와 로딩/에러 상태 처리 확인.
+    - path: "components/**"
+      instructions: |
+        재사용 UI 컴포넌트 디렉토리입니다.
+        단일 책임, props 타입·네이밍, a11y(aria/키보드/포커스),
+        불필요한 client component화 여부.
+    - path: "**/*.{ts,tsx}"
+      instructions: |
+        타입 안전성, any 남용, 널 가능성, 에러 처리 누락.
+        불필요한 useMemo/useCallback 남발, useEffect 의존성 배열과 cleanup 누락.
+    - path: "**/*.css.ts"
+      instructions: |
+        vanilla-extract 스타일 파일입니다.
+        정의된 토큰 사용 여부, 하드코딩 색상 남발 여부 확인.
+
+chat:
+  auto_reply: true
