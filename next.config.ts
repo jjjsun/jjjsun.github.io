@@ -3,5 +3,8 @@ import type { NextConfig } from "next";
 
 const withVanillaExtract = createVanillaExtractPlugin();
 
-const NextConfig: NextConfig = {};
-export default withVanillaExtract(NextConfig);
+const nextConfig: NextConfig = {
+  output: "export",
+  images: { unoptimized: true },
+};
+export default withVanillaExtract(nextConfig);
