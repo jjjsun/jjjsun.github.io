@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: 레포지토리 체크아웃
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: pnpm 설치
         uses: pnpm/action-setup@v5
