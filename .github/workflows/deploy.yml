@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: "0 0 * * *" # 매일 09:00 KST
   workflow_dispatch:
 
 concurrency:
@@ -20,6 +22,7 @@ jobs:
       - name: 레포지토리 체크아웃
         uses: actions/checkout@v4
         with:
+          ref: main
           persist-credentials: false
 
       - name: pnpm 설치

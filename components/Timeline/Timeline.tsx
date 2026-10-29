@@ -1,7 +1,8 @@
 import Reveal from "@/components/Reveal/Reveal";
 
 import * as styles from "./Timeline.css";
-import TimelineItem, { ITimelineItem } from "./TimelineItem";
+import { ITimelineItem } from "./TimelineItem";
+import TimelineList from "./TimelineList";
 
 const TIMELINE: ITimelineItem[] = [
   { period: "2026.09", title: "TOEIC Speaking IH 취득", category: "수상 & 자격" },
@@ -47,15 +48,12 @@ export default function Timeline() {
   return (
     <section id="timeline" className={styles.timeline}>
       <Reveal className={styles.container}>
-        <header className={styles.header}>
-          <p className={styles.label}>TIMELINE • 연혁</p>
-          <h2 className={styles.title}>2022년부터 지금까지</h2>
-        </header>
-        <ul className={styles.list}>
-          {TIMELINE.map((item) => (
-            <TimelineItem key={item.title} item={item} />
-          ))}
-        </ul>
+        <TimelineList items={TIMELINE}>
+          <header className={styles.header}>
+            <p className={styles.label}>TIMELINE • 연혁</p>
+            <h2 className={styles.title}>2022년부터 지금까지</h2>
+          </header>
+        </TimelineList>
       </Reveal>
     </section>
   );
