@@ -15,6 +15,14 @@ export const container = style({
   margin: "0 auto",
 });
 
+export const headerRow = style({
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "space-between",
+  alignItems: "flex-end",
+  gap: vars.space[24],
+});
+
 export const header = style({
   display: "flex",
   flexDirection: "column",

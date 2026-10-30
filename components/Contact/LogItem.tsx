@@ -24,14 +24,16 @@ export default function LogItem({ log, index }: TLogItemProps) {
           <span className={styles.title}>{title}</span>
           <span className={styles.date}>{date}</span>
         </span>
-        <span className={styles.tags}>
-          {tags.map((tag) => (
-            <span key={tag} className={styles.tag}>
-              <span className={styles.hash}>#</span>
-              {tag}
-            </span>
-          ))}
-        </span>
+        {tags.length > 0 && (
+          <span className={styles.tags}>
+            {tags.map((tag) => (
+              <span key={tag} className={styles.tag}>
+                <span className={styles.hash}>#</span>
+                {tag}
+              </span>
+            ))}
+          </span>
+        )}
         <span className={styles.arrow} aria-hidden="true">
           →
         </span>
