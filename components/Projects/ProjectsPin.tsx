@@ -40,6 +40,13 @@ export default function ProjectsPin({ header, names, children }: TProjectsPinPro
       mm.add(PINNED_QUERY, () => {
         const items = Array.from(root.querySelectorAll<HTMLElement>(`.${styles.item}`));
         const count = items.length;
+        const setActiveItem = (index: number) => {
+          items.forEach((item, itemIndex) => {
+            item.toggleAttribute("inert", itemIndex !== index);
+          });
+        };
+
+        setActiveItem(0);
 
         const tl = gsap.timeline({
           defaults: { ease: "power1.inOut" },
@@ -49,8 +56,11 @@ export default function ProjectsPin({ header, names, children }: TProjectsPinPro
             end: `+=${count * SCROLL_PER_CARD}%`,
             pin: true,
             scrub: 1,
-            onUpdate: (self) =>
-              setActiveIndex(Math.min(count - 1, Math.floor(self.progress * count + 0.2))),
+            onUpdate: (self) => {
+              const nextIndex = Math.min(count - 1, Math.floor(self.progress * count + 0.2));
+              setActiveIndex(nextIndex);
+              setActiveItem(nextIndex);
+            },
           },
         });
         items.slice(0, -1).forEach((item, i) => {
