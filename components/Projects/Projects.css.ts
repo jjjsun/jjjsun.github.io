@@ -61,7 +61,7 @@ export const nav = style({
     [pinned]: {
       display: "flex",
       flexWrap: "wrap",
-      gap: vars.space[32],
+      gap: vars.space[56],
     },
   },
 });
@@ -69,34 +69,26 @@ export const nav = style({
 export const navButton = style({
   display: "inline-flex",
   alignItems: "baseline",
-  gap: vars.space[12],
-  padding: `${vars.space[8]} ${vars.space[16]}`,
+  gap: vars.space[4],
+  padding: 0,
   border: "none",
-  borderRadius: vars.radius.pill,
-  background: vars.gradient.pillSurface,
-  boxShadow: vars.shadow.pill,
+  background: "none",
   fontFamily: "inherit",
-  fontSize: vars.font.size.sm,
+  fontSize: vars.font.size.md,
   fontWeight: vars.font.weight.medium,
-  color: vars.color.text.muted,
+  color: vars.color.text.disabled,
   cursor: "pointer",
-  transition: `color ${vars.motion.duration.fast} ${vars.motion.easing.out}, border-shadow ${vars.motion.duration.fast} ${vars.motion.easing.out}`,
+  transition: `color ${vars.motion.duration.fast} ${vars.motion.easing.out}`,
   selectors: {
-    "&:hover": {
-      background: vars.gradient.pillSurfaceHover,
-      boxShadow: vars.shadow.pillHover,
-    },
-    '&[aria-current="true"]': {
-      color: vars.color.brand.primary,
-      boxShadow: vars.shadow.pillHover,
-      borderBottomColor: vars.color.brand.primary,
-    },
+    "&:hover": { color: vars.color.text.body },
+    '&[aria-current="true"]': { color: vars.color.text.strong },
   },
 });
 
 export const navOrder = style({
   fontWeight: vars.font.weight.bold,
   letterSpacing: vars.font.letterSpacing.eyebrow,
+  color: vars.color.brand.primary,
 });
 
 export const list = style({
