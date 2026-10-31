@@ -90,21 +90,23 @@ export default function ProjectsPin({ header, names, children }: TProjectsPinPro
   return (
     <section ref={roofRef} id="projects" className={styles.projects}>
       <Reveal className={styles.container}>
-        {header}
-        <nav aria-label="프로젝트 바로가기" className={styles.nav}>
-          {names.map((name, i) => (
-            <button
-              key={name}
-              type="button"
-              className={styles.navButton}
-              aria-current={i === activeIndex}
-              onClick={() => handleNavClick(i)}
-            >
-              <span className={styles.navOrder}>{String(i + 1).padStart(2, "0")}</span>
-              {name}
-            </button>
-          ))}
-        </nav>
+        <div className={styles.top}>
+          {header}
+          <nav aria-label="프로젝트 바로가기" className={styles.nav}>
+            {names.map((name, i) => (
+              <button
+                key={name}
+                type="button"
+                className={styles.navButton}
+                aria-current={i === activeIndex}
+                onClick={() => handleNavClick(i)}
+              >
+                <span className={styles.navOrder}>{String(i + 1).padStart(2, "0")}</span>
+                {name}
+              </button>
+            ))}
+          </nav>
+        </div>
         <ul className={styles.list}>{children}</ul>
       </Reveal>
     </section>

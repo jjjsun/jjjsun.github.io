@@ -120,3 +120,10 @@ export const item = style({
     },
   },
 });
+
+export const top = style({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "flex-end",
+  gap: vars.space[24],
+});
