@@ -5,7 +5,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useState } from "react";
 
-import { PINNED_QUERY } from "../Hero/Hero.css";
 import Reveal from "../Reveal/Reveal";
 import * as styles from "./Projects.css";
 
@@ -37,7 +36,7 @@ export default function ProjectsPin({ header, names, children }: TProjectsPinPro
       if (!root) return;
 
       const mm = gsap.matchMedia();
-      mm.add(PINNED_QUERY, () => {
+      mm.add(styles.PROJECTS_PINNED_QUERY, () => {
         const items = Array.from(root.querySelectorAll<HTMLElement>(`.${styles.item}`));
         const count = items.length;
         const setActiveItem = (index: number) => {

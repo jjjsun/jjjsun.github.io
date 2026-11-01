@@ -4,7 +4,12 @@ import { vars } from "@/styles/theme.css";
 
 import { PINNED_QUERY } from "../Hero/Hero.css";
 
-const pinned = `screen and ${PINNED_QUERY}`;
+//카드 잘리지 않고 들어가는 최소 뷰표트 높이
+const MIN_PINNED_HEIGHT = 760;
+
+//CSS랑 GSAP가 같은 조건 쓰도록 공유
+export const PROJECTS_PINNED_QUERY = `${PINNED_QUERY} and (min-height: ${MIN_PINNED_HEIGHT}px)`;
+const pinned = `screen and ${PROJECTS_PINNED_QUERY}`;
 
 export const projects = style({
   "background": vars.color.bg.page,
