@@ -5,7 +5,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useState } from "react";
 
-import Reveal from "../Reveal/Reveal";
+import Reveal from "@/components/Reveal/Reveal";
+
 import * as styles from "./Projects.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);

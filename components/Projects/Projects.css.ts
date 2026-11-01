@@ -1,8 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
+import { PINNED_QUERY } from "@/components/Hero/Hero.css";
 import { vars } from "@/styles/theme.css";
-
-import { PINNED_QUERY } from "../Hero/Hero.css";
 
 //카드 잘리지 않고 들어가는 최소 뷰표트 높이
 const MIN_PINNED_HEIGHT = 760;
