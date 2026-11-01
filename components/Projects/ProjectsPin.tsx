@@ -80,6 +80,7 @@ export default function ProjectsPin({ header, names, children }: TProjectsPinPro
         triggerRef.current = tl.scrollTrigger ?? null;
         return () => {
           triggerRef.current = null;
+          items.forEach((item) => item.removeAttribute("inert"));
           setActiveIndex(0);
         };
       });
