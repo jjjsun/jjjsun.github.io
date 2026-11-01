@@ -1,7 +1,6 @@
-import Reveal from "@/components/Reveal/Reveal";
-
 import ProjectCard, { IProject } from "./ProjectCard";
 import * as styles from "./Projects.css";
+import ProjectsPin from "./ProjectsPin";
 
 const PROJECTS: IProject[] = [
   {
@@ -46,20 +45,20 @@ const PROJECTS: IProject[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className={styles.projects}>
-      <Reveal className={styles.container}>
+    <ProjectsPin
+      names={PROJECTS.map((project) => project.name)}
+      header={
         <header className={styles.header}>
           <p className={styles.label}>PROJECTS • 프로젝트</p>
           <h1 className={styles.title}>코드로 남긴 이야기</h1>
         </header>
-        <ul className={styles.list}>
-          {PROJECTS.map((project, index) => (
-            <li key={project.name} className={styles.item}>
-              <ProjectCard project={project} index={index} total={PROJECTS.length} />
-            </li>
-          ))}
-        </ul>
-      </Reveal>
-    </section>
+      }
+    >
+      {PROJECTS.map((project, index) => (
+        <li key={project.name} className={styles.item}>
+          <ProjectCard project={project} index={index} total={PROJECTS.length} />
+        </li>
+      ))}
+    </ProjectsPin>
   );
 }

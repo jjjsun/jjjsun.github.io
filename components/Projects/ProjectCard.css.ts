@@ -76,6 +76,8 @@ export const metric = style({
   lineHeight: vars.font.lineHeight.heading,
   letterSpacing: vars.font.letterSpacing.tight,
   color: vars.color.brand.primary,
+  textWrap: "balance",
+  wordBreak: "keep-all",
 });
 
 export const info = style({
