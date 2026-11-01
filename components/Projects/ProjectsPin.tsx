@@ -56,12 +56,13 @@ export default function ProjectsPin({ header, names, children }: TProjectsPinPro
             end: `+=${count * SCROLL_PER_CARD}%`,
             pin: true,
             scrub: 1,
-            onUpdate: (self) => {
-              const nextIndex = Math.min(count - 1, Math.floor(self.progress * count + 0.2));
-              setActiveIndex(nextIndex);
-              setActiveItem(nextIndex);
-            },
           },
+        });
+        //스크롤이 아닌 실제 애니메이션 진행도를 기준으로 상태 갱신
+        tl.eventCallback("onUpdate", () => {
+          const nextIndex = Math.min(count - 1, Math.floor(tl.progress() * count + 0.2));
+          setActiveIndex(nextIndex);
+          setActiveItem(nextIndex);
         });
         items.slice(0, -1).forEach((item, i) => {
           const at = i + HOLD;
