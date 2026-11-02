@@ -30,7 +30,6 @@ export default function ProjectModal({ project }: TProjectModalProps) {
     contributions,
     stack,
     links,
-    techChoices,
     troubleshootings,
     retrospective,
     videoUrl,
@@ -143,18 +142,6 @@ export default function ProjectModal({ project }: TProjectModalProps) {
               ))}
             </ul>
           )}
-
-          <ProjectDetailSection title="기술 선택 이유">
-            <ul className={styles.itemList}>
-              {techChoices.map(({ tech, reason }) => (
-                <li key={tech}>
-                  <strong className={styles.itemName}>{tech}</strong>
-                  <p className={styles.itemText}>{reason}</p>
-                </li>
-              ))}
-            </ul>
-          </ProjectDetailSection>
-
           <ProjectDetailSection title="트러블슈팅">
             <ul className={styles.itemList}>
               {troubleshootings.map((item) => (

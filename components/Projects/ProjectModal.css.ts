@@ -214,7 +214,6 @@ export const link = style({
   textDecoration: "underline",
   textUnderlineOffset: vars.space[4],
 });
-
 export const linkIcon = style({
   flex: "none",
   width: vars.space[16],
@@ -228,7 +227,7 @@ export const linkIcon = style({
 export const linkIconImage = styleVariants(
   {
     github: "/icons/github.svg",
-    demo: "/icons/demo.svg",
+    demo: "/icons/screen-share.svg",
   },
   (path) => ({ maskImage: `url("${path}")` }),
 );

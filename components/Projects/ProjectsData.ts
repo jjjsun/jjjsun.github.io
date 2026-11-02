@@ -17,13 +17,6 @@ export const PROJECTS: IProject[] = [
       { label: "GitHub", href: "aa", icon: "github" },
       { label: "LIVE DEMO", href: "bb", icon: "demo" },
     ],
-    techChoices: [
-      {
-        tech: "ApexCharts",
-        reason: "reason",
-      },
-      { tech: "TailwindCSS", reason: "reason" },
-    ],
     troubleshootings: [
       {
         title: "aexample",
@@ -55,13 +48,6 @@ export const PROJECTS: IProject[] = [
     links: [
       { label: "GitHub", href: "cc", icon: "github" },
       { label: "LIVE DEMO", href: "dd", icon: "demo" },
-    ],
-    techChoices: [
-      {
-        tech: "ApexCharts",
-        reason: "reason",
-      },
-      { tech: "TailwindCSS", reason: "reason" },
     ],
     troubleshootings: [
       {
@@ -109,42 +95,6 @@ export const PROJECTS: IProject[] = [
     links: [
       { label: "GitHub", href: "https://github.com/jjjsun/jjjsun.github.io", icon: "github" },
       { label: "LIVE DEMO", href: "https://jjjsun.github.io/", icon: "demo" },
-    ],
-    techChoices: [
-      {
-        tech: "Next.js",
-        reason:
-          "지금까지 React만 사용했어서 새로운 프레임워크를 써보고 싶어 선택했습니다. Server Component와 Client Component를 나눠 쓰면서 렌더링 방식의 차이점을 직접 경험하고 싶었습니다.",
-      },
-      {
-        tech: "TypeScript",
-        reason:
-          "JavaScript에 타입 정의로 런타임 전에 오류를 잡고, 코드의 안정성을 확보하기 위해 선택했습니다.",
-      },
-      {
-        tech: "vanilla-extract",
-        reason:
-          "지금까지 TailwindCSS만 써 와서, 다른 스타일링 방식과 비교해보고 싶어 선택했습니다. 두 방식의 장단점을 직접 경험하는 것이 목표였습니다.",
-      },
-      {
-        tech: "GSAP",
-        reason:
-          "다른 사이트에서 만들고 싶은 연출을 발견하여 개발자 도구로 확인해 보니 GSAP를 사용하고 있어 직접 적용하고 싶어 선택했습니다.",
-      },
-      {
-        tech: "Motion",
-        reason:
-          "애니메이션이 처음이라 React 컴포넌트에서 쉽게 시작할 수 있는 라이브러리로 선택했습니다.",
-      },
-      {
-        tech: "Github Actions",
-        reason: "PR 병합 전 lint 검사 자동 실행으로 코드 품질을 유지하기 위해 선택했습니다.",
-      },
-      {
-        tech: "Github Pages",
-        reason:
-          "코드 관리에 Github 사용중이어서, main에 push하면 바로 배포까지 이어지는 간편함 때문에 선택했습니다.",
-      },
     ],
     troubleshootings: [
       {

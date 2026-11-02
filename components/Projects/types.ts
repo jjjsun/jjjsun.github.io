@@ -6,11 +6,6 @@ export interface IProjectLink {
   icon: TProjectLinkIcon;
 }
 
-export interface ITechChoice {
-  tech: string;
-  reason: string;
-}
-
 export interface ITroubleshooting {
   title: string;
   problem: string;
@@ -36,7 +31,6 @@ export interface IProject {
   stack: string[];
   description: string;
   links: IProjectLink[];
-  techChoices: ITechChoice[];
   troubleshootings: ITroubleshooting[];
   retrospective: IRetrospective;
   videoUrl: string;
