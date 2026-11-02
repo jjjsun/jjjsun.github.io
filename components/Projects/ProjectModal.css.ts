@@ -111,9 +111,23 @@ export const closeButton = style({
   borderRadius: vars.radius.circle,
   background: vars.color.bg.surface,
   boxShadow: vars.shadow.xs,
-  fontSize: vars.font.size.xl,
-  lineHeight: vars.font.lineHeight.tight,
   color: vars.color.text.strong,
+  transition: `box-shadow ${vars.motion.duration.fast} ${vars.motion.easing.out}`,
+  selectors: {
+    "&:is(:hover, :focus-visible)": {
+      boxShadow: vars.shadow.md,
+    },
+  },
+});
+
+export const closeIcon = style({
+  width: vars.space[24],
+  height: vars.space[24],
+  backgroundColor: "currentColor",
+  maskImage: `url("/icons/x.svg")`,
+  maskRepeat: "no-repeat",
+  maskPosition: "center",
+  maskSize: "contain",
 });
 
 export const media = style({

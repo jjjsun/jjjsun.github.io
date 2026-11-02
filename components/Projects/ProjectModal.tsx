@@ -73,7 +73,7 @@ export default function ProjectModal({ project }: TProjectModalProps) {
           aria-label="닫기"
           onClick={handleCloseClick}
         >
-          <span aria-hidden="true">Ⅹ</span>
+          <span className={styles.closeIcon} aria-hidden="true" />
         </button>
         <div className={styles.media}>
           {isOpen && (
