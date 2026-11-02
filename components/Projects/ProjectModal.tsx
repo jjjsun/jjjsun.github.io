@@ -125,7 +125,7 @@ export default function ProjectModal({ project }: TProjectModalProps) {
 
           {links.length > 0 && (
             <ul className={styles.links}>
-              {links.map(({ label, href }) => (
+              {links.map(({ label, href, icon }) => (
                 <li key={label}>
                   <Link
                     className={styles.link}
@@ -133,7 +133,11 @@ export default function ProjectModal({ project }: TProjectModalProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {label} <span aria-hidden="true">↗</span>
+                    <span
+                      className={`${styles.linkIcon} ${styles.linkIconImage[icon]}`}
+                      aria-hidden="true"
+                    />
+                    {label}
                   </Link>
                 </li>
               ))}

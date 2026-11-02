@@ -1,4 +1,4 @@
-import { globalStyle, style } from "@vanilla-extract/css";
+import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
 
 import { breakpoint, vars } from "@/styles/theme.css";
 
@@ -205,12 +205,33 @@ export const links = style({
 });
 
 export const link = style({
+  display: "inline-flex",
+  alignItems: "center",
+  gap: vars.space[8],
   fontSize: vars.font.size.sm,
   fontWeight: vars.font.weight.medium,
   color: vars.color.brand.primary,
   textDecoration: "underline",
   textUnderlineOffset: vars.space[4],
 });
+
+export const linkIcon = style({
+  flex: "none",
+  width: vars.space[16],
+  height: vars.space[16],
+  backgroundColor: "currentColor",
+  maskRepeat: "no-repeat",
+  maskPosition: "center",
+  maskSize: "contain",
+});
+
+export const linkIconImage = styleVariants(
+  {
+    github: "/icons/github.svg",
+    demo: "/icons/demo.svg",
+  },
+  (path) => ({ maskImage: `url("${path}")` }),
+);
 
 export const steps = style({
   display: "flex",

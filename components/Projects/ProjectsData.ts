@@ -14,8 +14,8 @@ export const PROJECTS: IProject[] = [
     description:
       "마케터가 흩어진 광고 성과를 한곳에서 모니터링하고 분석할 수 있는 B2B 웹 플랫폼입니다. 팀 리더로서 일정 관리, 의견 조율, 발표를 맡았고, 프론트엔드에서는 워크스페이스, 알림, 설정, 타임라인 화면을 개발했습니다. 처음 써 보는 Service Worker로 탭을 닫아도 울리는 브라우저 푸시 알림을 구현했습니다. 이때 설정 토글이 켜진 것과 브라우저가 실제로 구독된 것은 다른 상태라는 점을 알고, 저장할 때만 구독이 반영되게 나눴습니다.",
     links: [
-      { label: "GitHub", href: "aa" },
-      { label: "LIVE DEMO", href: "bb" },
+      { label: "GitHub", href: "aa", icon: "github" },
+      { label: "LIVE DEMO", href: "bb", icon: "demo" },
     ],
     techChoices: [
       {
@@ -53,8 +53,8 @@ export const PROJECTS: IProject[] = [
     description:
       "지도에서 식당을 찾아 예약하는 웹 서비스입니다. 프론트엔드 리더로서 식당 검색부터 메뉴, 시간, 자리 선택, 결제, 결제 확인까지 이어지는 사용자 흐름 전체를 맡아 개발했습니다.",
     links: [
-      { label: "GitHub", href: "cc" },
-      { label: "LIVE DEMO", href: "dd" },
+      { label: "GitHub", href: "cc", icon: "github" },
+      { label: "LIVE DEMO", href: "dd", icon: "demo" },
     ],
     techChoices: [
       {
@@ -107,8 +107,8 @@ export const PROJECTS: IProject[] = [
     description:
       "Frontend Developer 박재선의 소개 포트폴리오 사이트입니다. 개발 경험과 같이 어떤 개발자인지 확인할 수 있습니다.",
     links: [
-      { label: "GitHub", href: "https://github.com/jjjsun/jjjsun.github.io" },
-      { label: "LIVE DEMO", href: "https://jjjsun.github.io/" },
+      { label: "GitHub", href: "https://github.com/jjjsun/jjjsun.github.io", icon: "github" },
+      { label: "LIVE DEMO", href: "https://jjjsun.github.io/", icon: "demo" },
     ],
     techChoices: [
       {

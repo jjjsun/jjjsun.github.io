@@ -1,6 +1,9 @@
+export type TProjectLinkIcon = "github" | "demo";
+
 export interface IProjectLink {
   label: string;
   href: string;
+  icon: TProjectLinkIcon;
 }
 
 export interface ITechChoice {
