@@ -1,23 +1,50 @@
 "use client";
 
+import Link from "next/link";
 import { useId, useRef, useState } from "react";
 
 import { IProject } from "./ProjectCard";
 import * as cardStyles from "./ProjectCard.css";
+import ProjectDetailSection from "./ProjectDetailSection";
 import * as styles from "./ProjectModal.css";
+
+const TROUBLE_STEPS = [
+  { label: "문제", key: "problem" },
+  { label: "원인", key: "reason" },
+  { label: "해결", key: "solution" },
+  { label: "결과", key: "result" },
+] as const;
 
 type TProjectModalProps = {
   project: IProject;
 };
 
 export default function ProjectModal({ project }: TProjectModalProps) {
-  const { name, period, org, description, role, stack, videoUrl } = project;
+  const {
+    name,
+    period,
+    org,
+    description,
+    role,
+    team,
+    contributions,
+    stack,
+    links,
+    techChoices,
+    troubleshootings,
+    retrospective,
+    videoUrl,
+  } = project;
   const [isOpen, setIsOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
 
   const handleOpen = () => {
     dialogRef.current?.showModal();
+    //닫아도 DOM이 남아서 이전 스크롤 위치가 유지되기때문에,열 때마다 맨 위가 먼저 보이도록
+    dialogRef.current?.scrollTo(0, 0); //모바일은 dialog가 스크롤
+    bodyRef.current?.scrollTo(0, 0); //데스크톱은 body가 스크롤
     setIsOpen(true);
   };
 
@@ -61,7 +88,7 @@ export default function ProjectModal({ project }: TProjectModalProps) {
             />
           )}
         </div>
-        <div className={styles.body}>
+        <div ref={bodyRef} className={styles.body}>
           <p className={cardStyles.meta}>
             <span className={cardStyles.period}>
               {period} • {org}
@@ -77,10 +104,84 @@ export default function ProjectModal({ project }: TProjectModalProps) {
               <dd className={cardStyles.infoText}>{role}</dd>
             </div>
             <div className={cardStyles.infoRow}>
+              <dt className={cardStyles.infoLabel}>팀 구성</dt>
+              <dd className={cardStyles.infoText}>{team}</dd>
+            </div>
+            <div className={cardStyles.infoRow}>
+              <dt className={cardStyles.infoLabel}>나의 기여</dt>
+              <dd className={cardStyles.infoText}>
+                <ul className={styles.bulletList}>
+                  {contributions.map((contribution) => (
+                    <li key={contribution}>{contribution}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+            <div className={cardStyles.infoRow}>
               <dt className={cardStyles.infoLabel}>기술 스택</dt>
               <dd className={cardStyles.infoText}>{stack.join(" • ")}</dd>
             </div>
           </dl>
+
+          {links.length > 0 && (
+            <ul className={styles.links}>
+              {links.map(({ label, href }) => (
+                <li key={label}>
+                  <Link
+                    className={styles.link}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferref"
+                  >
+                    {label} <span aria-hidden="true">↗</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <ProjectDetailSection title="기술 선택 이유">
+            <ul className={styles.itemList}>
+              {techChoices.map(({ tech, reason }) => (
+                <li key={tech}>
+                  <strong className={styles.itemName}>{tech}</strong>
+                  <p className={styles.itemText}>{reason}</p>
+                </li>
+              ))}
+            </ul>
+          </ProjectDetailSection>
+
+          <ProjectDetailSection title="트러블슈팅">
+            <ul className={styles.itemList}>
+              {troubleshootings.map((item) => (
+                <li key={item.title}>
+                  <h4 className={styles.itemName}>{item.title}</h4>
+                  <ol className={styles.steps}>
+                    {TROUBLE_STEPS.map(({ label, key }) => (
+                      <li key={key} className={styles.step}>
+                        <span className={styles.stepDot} aria-hidden="true" />
+                        <p className={styles.stepLabel}>{label}</p>
+                        <p className={styles.itemText}>{item[key]}</p>
+                      </li>
+                    ))}
+                  </ol>
+                </li>
+              ))}
+            </ul>
+          </ProjectDetailSection>
+
+          <ProjectDetailSection title="회고">
+            <dl className={cardStyles.info}>
+              <div className={cardStyles.infoRow}>
+                <dt className={cardStyles.infoLabel}>배운 점</dt>
+                <dd className={styles.itemText}>{retrospective.learned}</dd>
+              </div>
+              <div className={cardStyles.infoRow}>
+                <dt className={cardStyles.infoLabel}>활용</dt>
+                <dd className={styles.itemText}>{retrospective.apply}</dd>
+              </div>
+            </dl>
+          </ProjectDetailSection>
         </div>
       </dialog>
     </>

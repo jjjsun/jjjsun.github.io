@@ -34,12 +34,12 @@ export interface IProject {
   metric: string;
   role: string;
   team: string;
-  contribution: string[];
+  contributions: string[];
   stack: string[];
   description: string;
   links: IProjectLink[];
   techChoices: ITechChoice[];
-  troubleshooting: ITroubleshooting[];
+  troubleshootings: ITroubleshooting[];
   retrospective: IRetrospective;
   videoUrl: string;
   thumbnail: string;
