@@ -3,6 +3,29 @@ import Image from "next/image";
 import * as styles from "./ProjectCard.css";
 import ProjectModal from "./ProjectModal";
 
+export interface IProjectLink {
+  label: string;
+  href: string;
+}
+
+export interface ITechChoice {
+  tech: string;
+  reason: string;
+}
+
+export interface ITroubleshooting {
+  title: string;
+  problem: string;
+  reason: string;
+  solution: string;
+  result: string;
+}
+
+export interface IRetrospective {
+  learned: string;
+  apply: string;
+}
+
 export interface IProject {
   name: string;
   period: string;
@@ -10,8 +33,14 @@ export interface IProject {
   summary: string;
   metric: string;
   role: string;
+  team: string;
+  contribution: string[];
   stack: string[];
   description: string;
+  links: IProjectLink[];
+  techChoices: ITechChoice[];
+  troubleshooting: ITroubleshooting[];
+  retrospective: IRetrospective;
   videoUrl: string;
   thumbnail: string;
 }
