@@ -192,6 +192,7 @@ export const itemText = style({
   color: vars.color.text.body,
   wordBreak: "keep-all",
   overflowWrap: "break-word",
+  whiteSpace: "pre-line",
 });
 
 export const itemList = style({
