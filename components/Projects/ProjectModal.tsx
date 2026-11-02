@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { useId, useRef, useState } from "react";
 
-import { IProject } from "./ProjectCard";
 import * as cardStyles from "./ProjectCard.css";
 import ProjectDetailSection from "./ProjectDetailSection";
 import * as styles from "./ProjectModal.css";
+import { IProject } from "./types";
 
 const TROUBLE_STEPS = [
   { label: "문제", key: "problem" },
