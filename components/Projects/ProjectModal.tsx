@@ -131,7 +131,7 @@ export default function ProjectModal({ project }: TProjectModalProps) {
                     className={styles.link}
                     href={href}
                     target="_blank"
-                    rel="noopener noreferref"
+                    rel="noopener noreferrer"
                   >
                     {label} <span aria-hidden="true">↗</span>
                   </Link>
