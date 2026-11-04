@@ -209,6 +209,8 @@ export const bulletList = style({
   gap: vars.space[4],
   paddingLeft: vars.space[16],
   listStyle: "disc",
+  wordBreak: "keep-all",
+  textWrap: "pretty",
 });
 
 export const links = style({
