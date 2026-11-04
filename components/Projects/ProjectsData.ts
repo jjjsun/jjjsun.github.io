@@ -7,23 +7,53 @@ export const PROJECTS: IProject[] = [
     org: "2026 졸업프로젝트",
     summary: "온라인 광고 성과 모니터링/분석 B2B 웹 플랫폼",
     metric: "워크스페이스 • 알림 • 타임라인 FE 개발 + 팀 리딩",
-    role: "Team Leader, Frontend",
-    team: "example",
-    contributions: ["a", "b"],
-    stack: ["React", "TypeScript", "TailwindCSS", "ApexCharts", "Storybook"],
+    role: "Team Leader • Frontend Developer",
+    team: "FE 3명 • BE 3명",
+    contributions: [
+      "팀 리더: 기획•개발 방향 설정, 팀원 역할분담, 회의 주도, 교수님 월말 면담 준비 및 발표",
+      "대외 소통: 교내외 활동 발표와 외부 의사소통, 졸업프로젝트•대외활동 행정 및 서류처리",
+      "워크스페이스•멤버 관리 기능: 생성/수정/삭제, 초대 메일, 권한 변경",
+      "ADMIN/MEMBER 권한 분기(RBAC): 워크스페이스별 역할에 따라 메뉴•라우트 접근 제어",
+      "알림•설정: 내 알림, 팀원 알림 현황, Slack/Discord 설정, 브라우저 푸시 구독, 개인 정보 수정 및 회원탈퇴",
+      "타임라인: 타임라인 바, 성과 요약 패널, 일별 추이 차트(ApexCharts), AI요약 연동",
+    ],
+    stack: [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "ApexCharts",
+      "Storybook",
+      "Tanstack Query",
+      "Agile 방법론(Scrum)",
+    ],
     description:
-      "마케터가 흩어진 광고 성과를 한곳에서 모니터링하고 분석할 수 있는 B2B 웹 플랫폼입니다. 팀 리더로서 일정 관리, 의견 조율, 발표를 맡았고, 프론트엔드에서는 워크스페이스, 알림, 설정, 타임라인 화면을 개발했습니다. 처음 써 보는 Service Worker로 탭을 닫아도 울리는 브라우저 푸시 알림을 구현했습니다. 이때 설정 토글이 켜진 것과 브라우저가 실제로 구독된 것은 다른 상태라는 점을 알고, 저장할 때만 구독이 반영되게 나눴습니다.",
+      "마케터가 온라인의 여러 채널에 흩어진 광고 성과를 대시보드를 통해 모니터링하고 분석가능한 B2B 웹 플랫폼입니다.",
     links: [
-      { label: "GitHub", href: "aa", icon: "github" },
-      { label: "LIVE DEMO", href: "bb", icon: "demo" },
+      { label: "GitHub", href: "https://github.com/jjjsun/WhereYouAd-Frontend", icon: "github" },
+      { label: "LIVE DEMO", href: "https://www.whereyouad.com/", icon: "demo" },
     ],
     troubleshootings: [
       {
-        title: "aexample",
-        problem: "a",
-        reason: "a",
-        solution: "a",
-        result: "a",
+        title: "처음 구현한 브라우저 푸시, 화면 밖 코드 구현",
+        problem:
+          "브라우저 푸시는 처음 구현해 보는 기능이라 Service Worker가 어떻게 동작하는지 감이 없었습니다. 설정 상태값을 변경하면 알림이 오는 것이라고 생각했는데, 실제로는 알림 권한, Service Worker, VAPID 키, 서버에 등록하는 구독 정보가 각각 따로 필요했습니다.",
+        reason:
+          "Service Worker와 구독은 React 화면과 별개로 브라우저가 관리하는 상태입니다. Service Worker는 이벤트 처리가 끝났다고 판단되면 스스로 종료하고, 등록되어 있다는 보장도 없습니다. 이부분을 화면 안의 state처럼 생각하고 코드를 짜고 있었습니다.",
+        solution:
+          "구조를 하나씩 이해하면서 고쳤습니다. 토글은 화면 값만 바꾸고 구독은 저장 버튼을 눌렀을 때만 바꾸도록 나눴고, 알림을 띄우는 비동기 코드는 Promise로 넘겨서 Service Worker가 도중에 종료되지 않게 했으며, Service Worker가 없는 경우에도 설정 저장이 멈추지 않도록 확인하는 방식으로 바꿨습니다.",
+        result:
+          "푸시 구독부터 알림 표시, 열린 탭의 알림 목록 갱신까지 흐름을 완성했습니다. 화면 밖에서 도는 코드는 화면 state와는 다른 규칙으로 움직인다는걸 새로 배웠습니다.",
+      },
+      {
+        title: "팀장으로서 10개월 장기 프로젝트의 팀 체계 구축",
+        problem:
+          "첫 팀 리더를 맡았고, 팀원 모두 첫 장기 프로젝트였습니다. 10개월동안 서로를 믿고 서비스를 완성하기 위해서는 함께 지킬 규칙이 필요했습니다.",
+        reason:
+          "규칙 없이 각자 개발하면 막힌 부분이나 피드백이 늦게 나타나고, 기간이 길수록 팀원간의 진행 속도 차이도 벌어진다고 생각했습니다. 팀원 모두 처음이기에 서로의 선을 지키기 위한 기준이 먼저 필요했습니다.",
+        solution:
+          "이슈에 빠르게 대응하고 피드백 보완을 위해 2주 스프린트와 주2회 스크럼을 도입했습니다. 스크럼에서는 각자의 개발 현황을 공유하도록 이끌었습니다.",
+        result:
+          "개발 현황을 꾸준히 공유하여 최종 마감 안에 서비스를 완성했습니다. 이 서비스로 상명창업아이디어 경진대회 대상, 모두의 창업 1기 선정이라는 성과를 냈습니다.",
       },
     ],
     retrospective: {
