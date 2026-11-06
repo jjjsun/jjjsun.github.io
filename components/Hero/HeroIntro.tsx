@@ -8,9 +8,7 @@ export default function HeroIntro() {
         <span className={styles.name}>박재선</span>
         <span className={styles.nameEn}>PARK JAESEON</span>
       </h1>
-      <p className={styles.school}>
-        상명대학교 컴퓨터과학전공 [공학교육 인증 이수] • 2027.02 졸업예정
-      </p>
+      <p className={styles.school}>상명대학교 컴퓨터과학전공 • 2027.02 졸업예정</p>
       <p className={styles.scrollHint}>
         SCROLL <span className={styles.scrollArrow}>↓</span>
       </p>

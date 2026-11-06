@@ -2,19 +2,7 @@ import Image from "next/image";
 
 import * as styles from "./ProjectCard.css";
 import ProjectModal from "./ProjectModal";
-
-export interface IProject {
-  name: string;
-  period: string;
-  org: string;
-  summary: string;
-  metric: string;
-  role: string;
-  stack: string[];
-  description: string;
-  videoUrl: string;
-  thumbnail: string;
-}
+import { IProject } from "./types";
 
 type TProjectCardProps = {
   project: IProject;
