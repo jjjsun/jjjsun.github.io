@@ -4,6 +4,7 @@ export interface IProjectLink {
   label: string;
   href: string;
   icon: TProjectLinkIcon;
+  disabledReason?: string;
 }
 
 export interface ITroubleshooting {

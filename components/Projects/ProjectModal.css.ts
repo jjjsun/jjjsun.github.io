@@ -249,6 +249,13 @@ export const linkIconImage = styleVariants(
   (path) => ({ maskImage: `url("${path}")` }),
 );
 
+export const linkDisabeld = style([
+  link,
+  {
+    color: vars.color.text.disabled,
+    cursor: "not-allowed",
+  },
+]);
 export const steps = style({
   display: "flex",
   flexDirection: "column",

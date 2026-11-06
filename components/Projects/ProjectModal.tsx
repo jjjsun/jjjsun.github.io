@@ -124,20 +124,36 @@ export default function ProjectModal({ project }: TProjectModalProps) {
 
           {links.length > 0 && (
             <ul className={styles.links}>
-              {links.map(({ label, href, icon }) => (
+              {links.map(({ label, href, icon, disabledReason }) => (
                 <li key={label}>
-                  <Link
-                    className={styles.link}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  {disabledReason ? (
                     <span
-                      className={`${styles.linkIcon} ${styles.linkIconImage[icon]}`}
-                      aria-hidden="true"
-                    />
-                    {label}
-                  </Link>
+                      className={styles.linkDisabeld}
+                      role="link"
+                      aria-disabled="true"
+                      tabIndex={0}
+                      title={disabledReason}
+                    >
+                      <span
+                        className={`${styles.linkIcon} ${styles.linkIconImage[icon]}`}
+                        aria-hidden="true"
+                      />
+                      {label}
+                    </span>
+                  ) : (
+                    <Link
+                      className={styles.link}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span
+                        className={`${styles.linkIcon} ${styles.linkIconImage[icon]}`}
+                        aria-hidden="true"
+                      />
+                      {label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
