@@ -107,7 +107,7 @@ export default function ProjectModal({ project }: TProjectModalProps) {
               <dd className={cardStyles.infoText}>{team}</dd>
             </div>
             <div className={cardStyles.infoRow}>
-              <dt className={cardStyles.infoLabel}>나의 기여</dt>
+              <dt className={cardStyles.infoLabel}>담당 작업</dt>
               <dd className={cardStyles.infoText}>
                 <ul className={styles.bulletList}>
                   {contributions.map((contribution) => (
