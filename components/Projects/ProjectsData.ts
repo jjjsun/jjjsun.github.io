@@ -82,7 +82,7 @@ export const PROJECTS: IProject[] = [
     ],
     stack: ["React", "TypeScript", "TailwindCSS", "Tanstack Query"],
     description:
-      "사용자가 음식점 정보를 탐색하고 원하는 매장을 예약할 수 있는 음식점 예약 서비스입니다. 음식점 상세 정보부터 예약 메뉴 선택, 예약 확인, 토스 결제, 예약 완료까지 이어지는 예약 및 결제 플로우를 제공합니다.",
+      "사용자가 식당 정보를 탐색하고 원하는 매장을 예약할 수 있는 식당 예약 서비스입니다. 식당 상세 정보부터 예약 메뉴 선택, 예약 확인, 토스 결제, 예약 완료까지 이어지는 예약 및 결제 플로우를 제공합니다.",
     links: [
       { label: "GitHub", href: "https://github.com/Eatsfine/FE", icon: "github" },
       {
