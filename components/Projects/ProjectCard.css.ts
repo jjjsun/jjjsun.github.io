@@ -71,11 +71,13 @@ export const metricLabel = style({
 });
 
 export const metric = style({
-  fontSize: vars.font.size.metric,
+  fontSize: vars.font.size.lead,
   fontWeight: vars.font.weight.medium,
-  lineHeight: vars.font.lineHeight.heading,
+  lineHeight: vars.font.lineHeight.snug,
   letterSpacing: vars.font.letterSpacing.tight,
   color: vars.color.brand.primary,
+  textWrap: "balance",
+  wordBreak: "keep-all",
 });
 
 export const info = style({
