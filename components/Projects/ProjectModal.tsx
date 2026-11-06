@@ -54,6 +54,10 @@ export default function ProjectModal({ project }: TProjectModalProps) {
   //ESE와 닫기 버튼 둘다 closed 이벤트로 모이니까 여기서만 내림
   const handleDialogClose = () => setIsOpen(false);
 
+  const handleDialogClick = (e: React.MouseEvent<HTMLDialogElement>) => {
+    if (e.target === e.currentTarget) dialogRef.current?.close();
+  };
+
   return (
     <>
       <h3 className={cardStyles.name}>
@@ -65,6 +69,7 @@ export default function ProjectModal({ project }: TProjectModalProps) {
         ref={dialogRef}
         className={styles.dialog}
         aria-labelledby={titleId}
+        onClick={handleDialogClick}
         onClose={handleDialogClose}
       >
         <button
