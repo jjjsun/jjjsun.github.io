@@ -6,7 +6,7 @@ export const PROJECTS: IProject[] = [
     period: "2025.11 - 2026.09",
     org: "2026 졸업프로젝트",
     summary: "온라인 광고 성과 모니터링/분석 B2B 웹 플랫폼",
-    metric: "워크스페이스 • 알림 • 타임라인 FE 개발 + 팀 리딩",
+    metric: "상명창업아이디어 경진대회 대상 • 모두의 창업 1기 1라운드 진출",
     role: "Team Leader • Frontend Developer",
     team: "FE 3명 • BE 3명",
     contributions: [
@@ -70,29 +70,41 @@ export const PROJECTS: IProject[] = [
     period: "2026.01 - 2026.02",
     org: "UMC IT 연합동아리",
     summary: "지도 기반 레스토랑 자리 예약 웹 서비스",
-    metric: "식당 검색부터 예약 • 결제까지 사용자 흐름 전담 + FE 리딩",
+    metric: "검색부터 결제까지 이어지는 예약 서비스 구현",
     role: "Frontend Leader",
-    team: "example",
-    contributions: ["a", "b"],
-    stack: ["React", "TypeScript", "TailwindCSS", "Shadcn/ui", "Tanstack Query"],
+    team: "PM 1명 • BE 5명 • FE 3명",
+    contributions: [
+      "FE Lead: 프론트엔드 개발 방향 및 구현 과정 조율, 팀원 간 개발 진행 관리",
+      "식당 검색 • 상세: 검색 페이지, 카카오맵 마커 연동, 식당 상세 모달",
+      "예약 플로우 : 예약 정보 입력, 메뉴 선택, 예약 확인 단계별 모달과 예약 API 연동",
+      "토스 결제: 결제 모달부터 결제 성공, 예약 완료 화면까지 연결",
+      "마이페이지 • 설정: 내 정보 조회, 수정, 비밀번호 변경, 회원 탈퇴, 설정 화면",
+    ],
+    stack: ["React", "TypeScript", "TailwindCSS", "Tanstack Query"],
     description:
-      "지도에서 식당을 찾아 예약하는 웹 서비스입니다. 프론트엔드 리더로서 식당 검색부터 메뉴, 시간, 자리 선택, 결제, 결제 확인까지 이어지는 사용자 흐름 전체를 맡아 개발했습니다.",
+      "사용자가 음식점 정보를 탐색하고 원하는 매장을 예약할 수 있는 음식점 예약 서비스입니다. 음식점 상세 정보부터 예약 메뉴 선택, 예약 확인, 토스 결제, 예약 완료까지 이어지는 예약 및 결제 플로우를 제공합니다.",
     links: [
-      { label: "GitHub", href: "cc", icon: "github" },
-      { label: "LIVE DEMO", href: "dd", icon: "demo" },
+      { label: "GitHub", href: "https://github.com/Eatsfine/FE", icon: "github" },
+      { label: "LIVE DEMO", href: "https://www.eatsfine.co.kr", icon: "demo" },
     ],
     troubleshootings: [
       {
-        title: "aexample",
-        problem: "a",
-        reason: "a",
-        solution: "a",
-        result: "a",
+        title: "여러 모달로 이어진 예약 정보 유지",
+        problem:
+          "예약은 상세 모달에서 시작해 예약 정보 입력, 메뉴 선택, 확인, 결제까지 모달 여러 개를 거칩니다. 각 모달은 자기 입력값을 따로 들고 있어서, 다음 단계로 넘어가거나 이전 단계로 돌아올때 값이 이어지지 않았습니다.",
+        reason:
+          "모달마다 컴포넌트가 달라 입력값이 각자 state에 흩어져 있었고, 모달이 닫히면 그 값도 같이 사라지는 구조였습니다.",
+        solution:
+          "예약 정보를 상위 SearchPage에서 draft 하나로 관리하도록 바꿨습니다. 각 모달은 draft를 props로 받고, 다음 단계로 갈 때 값을 올려 보냅니다. 이전 단계로 돌아가면 저장된 draft로 입력값 상태를 복원하고, 다른 식당을 선택하면 draft를 초기화했습니다.",
+        result:
+          "상세 정보 확인부터 메뉴 선택, 예약 확인, 결제까지 단계를 이동해도 선택 정보가 유지되는 예약 플로우를 완성했습니다.",
       },
     ],
     retrospective: {
-      learned: "a",
-      apply: "a",
+      learned:
+        "FE 리더로서 팀원들의 구현 진행을 살피며 팀 단위로 개발하는 과정을 경험했습니다. 상세 정보부터 예약, 메뉴 선택, 결제까지 이어지는 핵심 흐름을 만들면서 여러 화면의 상태가 서로 연결되는 구조를 직접 설계했습니다. 토스페이먼츠를 연동하며 외부 결제 시스템이 프론트엔드와 이어지는 과정도 새로 익히게 되었습니다.",
+      apply:
+        "기능을 만들 때 화면만 보는 것이 아니라 사용자의 시선에서 흐름 전체를 먼저 그려보는 과정을 거치겠습니다. 여러 단계로 이어지는 기능은 중간에 나가거나 실패하는 경우가 있어 예외 처리까지 미리 체크하여 설계하겠습니다.",
     },
     videoUrl: "https://www.youtube.com/embed/Nk1_28zSJaQ",
     thumbnail: "/images/eatsfine.png",
