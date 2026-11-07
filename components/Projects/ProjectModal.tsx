@@ -81,16 +81,32 @@ export default function ProjectModal({ project }: TProjectModalProps) {
           <span className={styles.closeIcon} aria-hidden="true" />
         </button>
         <div className={styles.media}>
-          {isOpen && (
-            <iframe
-              className={styles.video}
-              src={videoUrl}
-              title={`${name} 소개 영상`}
-              allow="encrypted-media; picture-in-picture; fullscreen"
-              allowFullScreen
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
-          )}
+          <div className={styles.videoFrame}>
+            {isOpen && (
+              <iframe
+                className={styles.video}
+                src={videoUrl}
+                title={`${name} 소개 영상`}
+                allow="encrypted-media; picture-in-picture; fullscreen"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            )}
+          </div>
+          <dl className={styles.mediaInfo}>
+            <div className={styles.mediaInfoRow}>
+              <dt className={styles.mediaInfoLabel}>역할</dt>
+              <dd className={styles.mediaInfoText}>{role}</dd>
+            </div>
+            <div className={styles.mediaInfoRow}>
+              <dt className={styles.mediaInfoLabel}>팀 구성</dt>
+              <dd className={styles.mediaInfoText}>{team}</dd>
+            </div>
+            <div className={styles.mediaInfoRow}>
+              <dt className={styles.mediaInfoLabel}>기술 스택</dt>
+              <dd className={styles.mediaInfoText}>{stack.join(" • ")}</dd>
+            </div>
+          </dl>
         </div>
         <div ref={bodyRef} className={styles.body}>
           <p className={cardStyles.meta}>
@@ -104,14 +120,6 @@ export default function ProjectModal({ project }: TProjectModalProps) {
           <p className={styles.description}>{description}</p>
           <dl className={cardStyles.info}>
             <div className={cardStyles.infoRow}>
-              <dt className={cardStyles.infoLabel}>역할</dt>
-              <dd className={cardStyles.infoText}>{role}</dd>
-            </div>
-            <div className={cardStyles.infoRow}>
-              <dt className={cardStyles.infoLabel}>팀 구성</dt>
-              <dd className={cardStyles.infoText}>{team}</dd>
-            </div>
-            <div className={cardStyles.infoRow}>
               <dt className={cardStyles.infoLabel}>담당 작업</dt>
               <dd className={cardStyles.infoText}>
                 <ul className={styles.bulletList}>
@@ -121,12 +129,7 @@ export default function ProjectModal({ project }: TProjectModalProps) {
                 </ul>
               </dd>
             </div>
-            <div className={cardStyles.infoRow}>
-              <dt className={cardStyles.infoLabel}>기술 스택</dt>
-              <dd className={cardStyles.infoText}>{stack.join(" • ")}</dd>
-            </div>
           </dl>
-
           {links.length > 0 && (
             <ul className={styles.links}>
               {links.map(({ label, href, icon, disabledReason }) => (
