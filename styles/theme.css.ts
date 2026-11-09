@@ -206,7 +206,7 @@ export const vars = createGlobalTheme(":root", {
     aboutItemGap: "clamp(40px,4vw,56px)",
     modalMaxWidth: "1320px",
     modalMaxHeight: "min(820px, calc(100vh - 64px))",
-    modalColumns: "13fr 11fr",
+    modalColumns: "14fr 10fr",
   },
 
   motion: {

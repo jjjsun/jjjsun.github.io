@@ -83,11 +83,12 @@ export const dialog = style({
   "@media": {
     [mobile]: {
       overflowY: "auto",
+      scrollbarWidth: "none",
       selectors: {
         "&[open]": {
-          gridTemplateColumns: "1fr",
-          gridTemplateRows: "auto",
+          display: "block",
         },
+        "&::-webkit-scrollbar": { display: "none" }, // 이전 Safari/Chrome
       },
     },
     [REDUCE_MOTION]: {
@@ -100,22 +101,44 @@ export const dialog = style({
 });
 
 export const closeButton = style({
-  position: "absolute",
-  top: vars.space[16],
-  right: vars.space[16],
-  zIndex: 1,
-  display: "grid",
-  placeItems: "center",
-  width: vars.space[40],
-  height: vars.space[40],
-  borderRadius: vars.radius.circle,
-  background: vars.color.bg.surface,
-  boxShadow: vars.shadow.xs,
-  color: vars.color.text.strong,
-  transition: `box-shadow ${vars.motion.duration.fast} ${vars.motion.easing.out}`,
-  selectors: {
+  "position": "absolute",
+  "top": vars.space[16],
+  "right": vars.space[16],
+  "zIndex": 2,
+  "display": "grid",
+  "placeItems": "center",
+  "width": vars.space[40],
+  "height": vars.space[40],
+  "borderRadius": vars.radius.circle,
+  "background": vars.color.bg.surface,
+  "boxShadow": vars.shadow.xs,
+  "color": vars.color.text.strong,
+  "transition": `box-shadow ${vars.motion.duration.fast} ${vars.motion.easing.out}`,
+  "selectors": {
     "&:is(:hover, :focus-visible)": {
       boxShadow: vars.shadow.md,
+    },
+  },
+  "@media": {
+    [mobile]: {
+      display: "none",
+    },
+  },
+});
+
+export const bottomCloseButton = style({
+  "display": "none",
+  "@media": {
+    [mobile]: {
+      display: "block",
+      alignSelf: "center",
+      marginTop: vars.space[12],
+      padding: `${vars.space[12]} ${vars.space[32]}`,
+      borderRadius: vars.radius.sm,
+      background: vars.color.bg.mediaDark,
+      color: vars.color.text.onDark,
+      fontSize: vars.font.size.sm,
+      fontWeight: vars.font.weight.medium,
     },
   },
 });
@@ -131,15 +154,72 @@ export const closeIcon = style({
 });
 
 export const media = style({
-  display: "flex",
-  alignItems: "center",
-  background: vars.color.bg.mediaDark,
+  "display": "flex",
+  "flexDirection": "column",
+  "overflowX": "hidden",
+  "overflowY": "auto", // 데스크톱: 정보가 길면 이 컬럼만 스크롤
+  "background": vars.color.bg.mediaDark,
+  "selectors": {
+    // 스페이서: 위는 기준 0, 아래는 기준 24px
+    // 남는 공간이 24px 이하면 전부 아래로 가서 영상이 맨 위에 붙음
+    "&::before": { content: '""', flex: "1 1 0" },
+    "&::after": { content: '""', flex: "1 1 24px" },
+  },
+  "@media": {
+    [mobile]: {
+      display: "contents",
+    },
+  },
+});
+
+// iframe이 언마운트돼도(닫힐 때) 16:9 자리는 유지해서 레이아웃이 튀지 않게 함
+export const videoFrame = style({
+  "flex": "none",
+  "aspectRatio": "16 / 9",
+  "width": "100%",
+  "background": vars.color.bg.mediaDark,
+  "@media": {
+    [mobile]: { position: "sticky", top: 0, zIndex: 1 },
+  },
 });
 
 export const video = style({
   width: "100%",
-  aspectRatio: "16 / 9",
+  height: "100%",
   border: 0,
+});
+
+export const mediaInfo = style({
+  "flex": "none",
+  "display": "flex",
+  "flexDirection": "column",
+  "gap": vars.space[16],
+  "padding": `${vars.space[32]} ${vars.space[40]}`,
+  "@media": {
+    [mobile]: { padding: vars.space[24], background: vars.color.bg.mediaDark },
+  },
+});
+
+export const mediaInfoRow = style({
+  display: "flex",
+  alignItems: "baseline",
+  gap: vars.space[24],
+});
+
+export const mediaInfoLabel = style({
+  flex: "none",
+  width: "72px",
+  fontSize: vars.font.size.sm,
+  color: vars.color.brand.pale,
+});
+
+export const mediaInfoText = style({
+  fontSize: vars.font.size.sm,
+  lineHeight: vars.font.lineHeight.body,
+  color: vars.color.text.onDark,
+  minWidth: 0,
+  wordBreak: "keep-all",
+  overflowWrap: "break-word",
 });
 
 export const body = style({
@@ -152,6 +232,8 @@ export const body = style({
     [mobile]: {
       padding: vars.space[24],
       overflowY: "visible",
+      position: "relative",
+      zIndex: 0,
     },
   },
 });
