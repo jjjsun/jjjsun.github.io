@@ -143,7 +143,13 @@ export const media = style({
     "&::after": { content: '""', flex: "1 1 24px" },
   },
   "@media": {
-    [mobile]: { overflowY: "visible" },
+    [mobile]: {
+      overflowY: "visible",
+      selectors: {
+        "&::before": { display: "none" },
+        "&::after": { display: "none" },
+      },
+    },
   },
 });
 
