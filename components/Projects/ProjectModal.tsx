@@ -81,19 +81,17 @@ export default function ProjectModal({ project }: TProjectModalProps) {
           <span className={styles.closeIcon} aria-hidden="true" />
         </button>
         <div className={styles.media}>
-          <div className={styles.videoArea}>
-            <div className={styles.videoFrame}>
-              {isOpen && (
-                <iframe
-                  className={styles.video}
-                  src={videoUrl}
-                  title={`${name} 소개 영상`}
-                  allow="encrypted-media; picture-in-picture; fullscreen"
-                  allowFullScreen
-                  referrerPolicy="strict-origin-when-cross-origin"
-                />
-              )}
-            </div>
+          <div className={styles.videoFrame}>
+            {isOpen && (
+              <iframe
+                className={styles.video}
+                src={videoUrl}
+                title={`${name} 소개 영상`}
+                allow="encrypted-media; picture-in-picture; fullscreen"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            )}
           </div>
 
           <dl className={styles.mediaInfo}>

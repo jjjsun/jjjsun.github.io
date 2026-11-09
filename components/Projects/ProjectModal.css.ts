@@ -135,6 +135,7 @@ export const media = style({
   "flexDirection": "column",
   "overflowX": "hidden",
   "overflowY": "auto", // 데스크톱: 정보가 길면 이 컬럼만 스크롤
+  "background": vars.color.bg.mediaDark,
   "@media": {
     [mobile]: { overflowY: "visible" },
   },
@@ -143,6 +144,7 @@ export const media = style({
 // iframe이 언마운트돼도(닫힐 때) 16:9 자리는 유지해서 레이아웃이 튀지 않게 함
 export const videoFrame = style({
   flex: "none",
+  marginTop: "auto",
   aspectRatio: "16 / 9",
   width: "100%",
 });
@@ -153,21 +155,13 @@ export const video = style({
   border: 0,
 });
 
-export const videoArea = style({
-  flex: 1,
-  display: "flex",
-  alignItems: "center",
-  background: vars.color.bg.mediaStage,
-});
-
 export const mediaInfo = style({
   "flex": "none",
-  "marginTop": "auto",
+  "marginBottom": "auto",
   "display": "flex",
   "flexDirection": "column",
   "gap": vars.space[16],
   "padding": `${vars.space[32]} ${vars.space[40]}`,
-  "background": vars.color.bg.mediaStage,
   "@media": {
     [mobile]: { padding: vars.space[24] },
   },
