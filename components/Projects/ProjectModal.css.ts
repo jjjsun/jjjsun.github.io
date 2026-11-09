@@ -136,6 +136,12 @@ export const media = style({
   "overflowX": "hidden",
   "overflowY": "auto", // 데스크톱: 정보가 길면 이 컬럼만 스크롤
   "background": vars.color.bg.mediaDark,
+  "selectors": {
+    // 스페이서: 위는 기준 0, 아래는 기준 24px
+    // 남는 공간이 24px 이하면 전부 아래로 가서 영상이 맨 위에 붙음
+    "&::before": { content: '""', flex: "1 1 0" },
+    "&::after": { content: '""', flex: "1 1 24px" },
+  },
   "@media": {
     [mobile]: { overflowY: "visible" },
   },
