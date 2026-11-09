@@ -83,10 +83,12 @@ export const dialog = style({
   "@media": {
     [mobile]: {
       overflowY: "auto",
+      scrollbarWidth: "none",
       selectors: {
         "&[open]": {
           display: "block",
         },
+        "&::-webkit-scrollbar": { display: "none" }, // 이전 Safari/Chrome
       },
     },
     [REDUCE_MOTION]: {
