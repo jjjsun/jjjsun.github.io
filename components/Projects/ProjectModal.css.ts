@@ -157,7 +157,7 @@ export const videoArea = style({
   flex: 1,
   display: "flex",
   alignItems: "center",
-  background: vars.color.bg.mediaDark,
+  background: vars.color.bg.mediaStage,
 });
 
 export const mediaInfo = style({
@@ -167,7 +167,7 @@ export const mediaInfo = style({
   "flexDirection": "column",
   "gap": vars.space[16],
   "padding": `${vars.space[32]} ${vars.space[40]}`,
-  "background": vars.color.bg.mediaDark,
+  "background": vars.color.bg.mediaStage,
   "@media": {
     [mobile]: { padding: vars.space[24] },
   },

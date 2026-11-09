@@ -43,7 +43,6 @@ export const vars = createGlobalTheme(":root", {
       header: "rgba(230,238,248,.8)",
       mediaDark: "#0f1726",
       mediaDark2: "#22324f",
-      mediaStage: "#212121",
       scrim: "rgba(20,33,58,.36)",
       hover: "rgba(255,255,255,.28)",
       hoverStrong: "rgba(255,255,255,.45)",
