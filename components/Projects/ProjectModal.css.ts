@@ -85,8 +85,7 @@ export const dialog = style({
       overflowY: "auto",
       selectors: {
         "&[open]": {
-          gridTemplateColumns: "1fr",
-          gridTemplateRows: "auto",
+          display: "block",
         },
       },
     },
@@ -100,22 +99,44 @@ export const dialog = style({
 });
 
 export const closeButton = style({
-  position: "absolute",
-  top: vars.space[16],
-  right: vars.space[16],
-  zIndex: 1,
-  display: "grid",
-  placeItems: "center",
-  width: vars.space[40],
-  height: vars.space[40],
-  borderRadius: vars.radius.circle,
-  background: vars.color.bg.surface,
-  boxShadow: vars.shadow.xs,
-  color: vars.color.text.strong,
-  transition: `box-shadow ${vars.motion.duration.fast} ${vars.motion.easing.out}`,
-  selectors: {
+  "position": "absolute",
+  "top": vars.space[16],
+  "right": vars.space[16],
+  "zIndex": 2,
+  "display": "grid",
+  "placeItems": "center",
+  "width": vars.space[40],
+  "height": vars.space[40],
+  "borderRadius": vars.radius.circle,
+  "background": vars.color.bg.surface,
+  "boxShadow": vars.shadow.xs,
+  "color": vars.color.text.strong,
+  "transition": `box-shadow ${vars.motion.duration.fast} ${vars.motion.easing.out}`,
+  "selectors": {
     "&:is(:hover, :focus-visible)": {
       boxShadow: vars.shadow.md,
+    },
+  },
+  "@media": {
+    [mobile]: {
+      display: "none",
+    },
+  },
+});
+
+export const bottomCloseButton = style({
+  "display": "none",
+  "@media": {
+    [mobile]: {
+      display: "block",
+      alignSelf: "center",
+      marginTop: vars.space[12],
+      padding: `${vars.space[12]} ${vars.space[32]}`,
+      borderRadius: vars.radius.sm,
+      background: vars.color.bg.mediaDark,
+      color: vars.color.text.onDark,
+      fontSize: vars.font.size.sm,
+      fontWeight: vars.font.weight.medium,
     },
   },
 });
@@ -144,21 +165,20 @@ export const media = style({
   },
   "@media": {
     [mobile]: {
-      overflowX: "clip",
-      overflowY: "visible",
-      selectors: {
-        "&::before": { display: "none" },
-        "&::after": { display: "none" },
-      },
+      display: "contents",
     },
   },
 });
 
 // iframe이 언마운트돼도(닫힐 때) 16:9 자리는 유지해서 레이아웃이 튀지 않게 함
 export const videoFrame = style({
-  flex: "none",
-  aspectRatio: "16 / 9",
-  width: "100%",
+  "flex": "none",
+  "aspectRatio": "16 / 9",
+  "width": "100%",
+  "background": vars.color.bg.mediaDark,
+  "@media": {
+    [mobile]: { position: "sticky", top: 0, zIndex: 1 },
+  },
 });
 
 export const video = style({
@@ -174,7 +194,7 @@ export const mediaInfo = style({
   "gap": vars.space[16],
   "padding": `${vars.space[32]} ${vars.space[40]}`,
   "@media": {
-    [mobile]: { padding: vars.space[24] },
+    [mobile]: { padding: vars.space[24], background: vars.color.bg.mediaDark },
   },
 });
 
@@ -210,6 +230,8 @@ export const body = style({
     [mobile]: {
       padding: vars.space[24],
       overflowY: "visible",
+      position: "relative",
+      zIndex: 0,
     },
   },
 });

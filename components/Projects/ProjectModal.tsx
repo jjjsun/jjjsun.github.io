@@ -198,6 +198,9 @@ export default function ProjectModal({ project }: TProjectModalProps) {
               </div>
             </dl>
           </ProjectDetailSection>
+          <button type="button" className={styles.bottomCloseButton} onClick={handleCloseClick}>
+            닫기
+          </button>
         </div>
       </dialog>
     </>
