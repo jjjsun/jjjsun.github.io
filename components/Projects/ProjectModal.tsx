@@ -103,6 +103,16 @@ export default function ProjectModal({ project }: TProjectModalProps) {
               <dd className={styles.mediaInfoText}>{team}</dd>
             </div>
             <div className={styles.mediaInfoRow}>
+              <dt className={styles.mediaInfoLabel}>담당 작업</dt>
+              <dd className={styles.mediaInfoText}>
+                <ul className={styles.bulletList}>
+                  {contributions.map((contribution) => (
+                    <li key={contribution}>{contribution}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+            <div className={styles.mediaInfoRow}>
               <dt className={styles.mediaInfoLabel}>기술 스택</dt>
               <dd className={styles.mediaInfoText}>{stack.join(" • ")}</dd>
             </div>
@@ -118,18 +128,6 @@ export default function ProjectModal({ project }: TProjectModalProps) {
             {name}
           </h2>
           <p className={styles.description}>{description}</p>
-          <dl className={cardStyles.info}>
-            <div className={cardStyles.infoRow}>
-              <dt className={cardStyles.infoLabel}>담당 작업</dt>
-              <dd className={cardStyles.infoText}>
-                <ul className={styles.bulletList}>
-                  {contributions.map((contribution) => (
-                    <li key={contribution}>{contribution}</li>
-                  ))}
-                </ul>
-              </dd>
-            </div>
-          </dl>
           {links.length > 0 && (
             <ul className={styles.links}>
               {links.map(({ label, href, icon, disabledReason }) => (

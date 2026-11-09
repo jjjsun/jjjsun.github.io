@@ -131,9 +131,8 @@ export const closeIcon = style({
 });
 
 export const media = style({
-  "display": "grid",
-  "gridTemplateColumns": "minmax(0, 1fr)", // 긴 글 때문에 열이 넓어지지 않게
-  "gridTemplateRows": "1fr auto 1fr", // 영상은 가운데, 정보는 아래
+  "display": "flex",
+  "flexDirection": "column",
   "overflowX": "hidden",
   "overflowY": "auto", // 데스크톱: 정보가 길면 이 컬럼만 스크롤
   "background": vars.color.bg.mediaDark,
@@ -144,7 +143,7 @@ export const media = style({
 
 // iframe이 언마운트돼도(닫힐 때) 16:9 자리는 유지해서 레이아웃이 튀지 않게 함
 export const videoFrame = style({
-  gridRow: 2,
+  flex: "none",
   aspectRatio: "16 / 9",
 });
 
@@ -155,8 +154,6 @@ export const video = style({
 });
 
 export const mediaInfo = style({
-  "gridRow": 3,
-  "alignSelf": "end",
   "display": "flex",
   "flexDirection": "column",
   "gap": vars.space[16],
