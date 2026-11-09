@@ -150,7 +150,6 @@ export const media = style({
 // iframe이 언마운트돼도(닫힐 때) 16:9 자리는 유지해서 레이아웃이 튀지 않게 함
 export const videoFrame = style({
   flex: "none",
-  marginTop: "auto",
   aspectRatio: "16 / 9",
   width: "100%",
 });
@@ -163,7 +162,6 @@ export const video = style({
 
 export const mediaInfo = style({
   "flex": "none",
-  "marginBottom": "auto",
   "display": "flex",
   "flexDirection": "column",
   "gap": vars.space[16],
