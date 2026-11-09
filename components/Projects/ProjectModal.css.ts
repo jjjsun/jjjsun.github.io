@@ -144,6 +144,7 @@ export const media = style({
   },
   "@media": {
     [mobile]: {
+      overflowX: "clip",
       overflowY: "visible",
       selectors: {
         "&::before": { display: "none" },

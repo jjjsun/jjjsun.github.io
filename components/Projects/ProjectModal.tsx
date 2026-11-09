@@ -36,6 +36,7 @@ export default function ProjectModal({ project }: TProjectModalProps) {
   } = project;
   const [isOpen, setIsOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const mediaRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
 
@@ -43,6 +44,7 @@ export default function ProjectModal({ project }: TProjectModalProps) {
     dialogRef.current?.showModal();
     //닫아도 DOM이 남아서 이전 스크롤 위치가 유지되기때문에,열 때마다 맨 위가 먼저 보이도록
     dialogRef.current?.scrollTo(0, 0); //모바일은 dialog가 스크롤
+    mediaRef.current?.scrollTo(0, 0); //데스크톱은 왼쪽 media가 스크롤
     bodyRef.current?.scrollTo(0, 0); //데스크톱은 body가 스크롤
     setIsOpen(true);
   };
@@ -80,7 +82,7 @@ export default function ProjectModal({ project }: TProjectModalProps) {
         >
           <span className={styles.closeIcon} aria-hidden="true" />
         </button>
-        <div className={styles.media}>
+        <div ref={mediaRef} className={styles.media}>
           <div className={styles.videoFrame}>
             {isOpen && (
               <iframe
