@@ -71,3 +71,8 @@ export const list = style({
     background: vars.gradient.borderFade,
   },
 });
+
+export const empty = style({
+  fontSize: vars.font.size.sm,
+  color: vars.color.text.muted,
+});

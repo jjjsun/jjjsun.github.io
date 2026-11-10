@@ -36,6 +36,7 @@ export default function ProjectModal({ project }: TProjectModalProps) {
   } = project;
   const [isOpen, setIsOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const mediaRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
 
@@ -43,6 +44,7 @@ export default function ProjectModal({ project }: TProjectModalProps) {
     dialogRef.current?.showModal();
     //닫아도 DOM이 남아서 이전 스크롤 위치가 유지되기때문에,열 때마다 맨 위가 먼저 보이도록
     dialogRef.current?.scrollTo(0, 0); //모바일은 dialog가 스크롤
+    mediaRef.current?.scrollTo(0, 0); //데스크톱은 왼쪽 media가 스크롤
     bodyRef.current?.scrollTo(0, 0); //데스크톱은 body가 스크롤
     setIsOpen(true);
   };
@@ -80,17 +82,44 @@ export default function ProjectModal({ project }: TProjectModalProps) {
         >
           <span className={styles.closeIcon} aria-hidden="true" />
         </button>
-        <div className={styles.media}>
-          {isOpen && (
-            <iframe
-              className={styles.video}
-              src={videoUrl}
-              title={`${name} 소개 영상`}
-              allow="encrypted-media; picture-in-picture; fullscreen"
-              allowFullScreen
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
-          )}
+        <div ref={mediaRef} className={styles.media}>
+          <div className={styles.videoFrame}>
+            {isOpen && (
+              <iframe
+                className={styles.video}
+                src={videoUrl}
+                title={`${name} 소개 영상`}
+                allow="encrypted-media; picture-in-picture; fullscreen"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            )}
+          </div>
+
+          <dl className={styles.mediaInfo}>
+            <div className={styles.mediaInfoRow}>
+              <dt className={styles.mediaInfoLabel}>역할</dt>
+              <dd className={styles.mediaInfoText}>{role}</dd>
+            </div>
+            <div className={styles.mediaInfoRow}>
+              <dt className={styles.mediaInfoLabel}>팀 구성</dt>
+              <dd className={styles.mediaInfoText}>{team}</dd>
+            </div>
+            <div className={styles.mediaInfoRow}>
+              <dt className={styles.mediaInfoLabel}>담당 작업</dt>
+              <dd className={styles.mediaInfoText}>
+                <ul className={styles.bulletList}>
+                  {contributions.map((contribution) => (
+                    <li key={contribution}>{contribution}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+            <div className={styles.mediaInfoRow}>
+              <dt className={styles.mediaInfoLabel}>기술 스택</dt>
+              <dd className={styles.mediaInfoText}>{stack.join(" • ")}</dd>
+            </div>
+          </dl>
         </div>
         <div ref={bodyRef} className={styles.body}>
           <p className={cardStyles.meta}>
@@ -102,31 +131,6 @@ export default function ProjectModal({ project }: TProjectModalProps) {
             {name}
           </h2>
           <p className={styles.description}>{description}</p>
-          <dl className={cardStyles.info}>
-            <div className={cardStyles.infoRow}>
-              <dt className={cardStyles.infoLabel}>역할</dt>
-              <dd className={cardStyles.infoText}>{role}</dd>
-            </div>
-            <div className={cardStyles.infoRow}>
-              <dt className={cardStyles.infoLabel}>팀 구성</dt>
-              <dd className={cardStyles.infoText}>{team}</dd>
-            </div>
-            <div className={cardStyles.infoRow}>
-              <dt className={cardStyles.infoLabel}>담당 작업</dt>
-              <dd className={cardStyles.infoText}>
-                <ul className={styles.bulletList}>
-                  {contributions.map((contribution) => (
-                    <li key={contribution}>{contribution}</li>
-                  ))}
-                </ul>
-              </dd>
-            </div>
-            <div className={cardStyles.infoRow}>
-              <dt className={cardStyles.infoLabel}>기술 스택</dt>
-              <dd className={cardStyles.infoText}>{stack.join(" • ")}</dd>
-            </div>
-          </dl>
-
           {links.length > 0 && (
             <ul className={styles.links}>
               {links.map(({ label, href, icon, disabledReason }) => (
@@ -194,6 +198,9 @@ export default function ProjectModal({ project }: TProjectModalProps) {
               </div>
             </dl>
           </ProjectDetailSection>
+          <button type="button" className={styles.bottomCloseButton} onClick={handleCloseClick}>
+            닫기
+          </button>
         </div>
       </dialog>
     </>

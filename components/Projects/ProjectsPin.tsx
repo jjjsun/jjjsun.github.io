@@ -25,6 +25,10 @@ const HOLD = 0.6;
 const FADE = 0.4;
 const OFFSET_Y = 60;
 
+const closeOpenDialogs = (root: HTMLElement) => {
+  root.querySelectorAll<HTMLDialogElement>("dialog[open]").forEach((dialog) => dialog.close());
+};
+
 export default function ProjectsPin({ header, names, children }: TProjectsPinProps) {
   const roofRef = useRef<HTMLElement>(null);
   const triggerRef = useRef<ScrollTrigger | null>(null);
@@ -38,6 +42,12 @@ export default function ProjectsPin({ header, names, children }: TProjectsPinPro
 
       const mm = gsap.matchMedia();
       mm.add(styles.PROJECTS_PINNED_QUERY, () => {
+        closeOpenDialogs(root);
+
+        //resize로 ScrollTrigger가 refresh하면 pin-spacer가 다시 감겨 DOM이 옮겨지므로 그 전에 닫음
+        const handleRefreshInit = () => closeOpenDialogs(root);
+        ScrollTrigger.addEventListener("refreshInit", handleRefreshInit);
+
         const items = Array.from(root.querySelectorAll<HTMLElement>(`.${styles.item}`));
         const count = items.length;
         const setActiveItem = (index: number) => {
@@ -79,6 +89,8 @@ export default function ProjectsPin({ header, names, children }: TProjectsPinPro
 
         triggerRef.current = tl.scrollTrigger ?? null;
         return () => {
+          ScrollTrigger.removeEventListener("refreshInit", handleRefreshInit);
+          closeOpenDialogs(root);
           triggerRef.current = null;
           items.forEach((item) => item.removeAttribute("inert"));
           setActiveIndex(0);

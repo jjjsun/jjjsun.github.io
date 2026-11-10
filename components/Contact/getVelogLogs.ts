@@ -3,7 +3,7 @@ import { ILog } from "./LogItem";
 
 const MAX_LOGS = 4;
 const KST_OFFSET_MS = 9 * 60 * 60 * 1000; //KST가 UTC보다 9시간 빠르기에 9시간 더해주기위해 준비한 상수
-
+const FETCH_TIMEOUT_MS = 8 * 1000;
 //velog 태그들에는 뭐가 있나
 //title: 글제목. <![CDATA[...]]>로 감싸져있음
 //link: 글주소
@@ -31,7 +31,7 @@ const formatDate = (pubDate: string) =>
     .replaceAll("-", ".");
 
 export async function getVelogLogs(): Promise<ILog[]> {
-  const res = await fetch(VELOG_RSS_URL);
+  const res = await fetch(VELOG_RSS_URL, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
   if (!res.ok) throw new Error(`Velog RSS 요청 실패: ${res.status}`);
 
   const xml = await res.text();
