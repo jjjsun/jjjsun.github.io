@@ -163,7 +163,7 @@ export const PROJECTS: IProject[] = [
       apply:
         "어떤 스타일링을 쓰든, 기획 단계에서 디자인 토큰을 먼저 정의하고 그 안에서만 쓰는 것이 일관성과 유지보수를 위해 가장 중요하다고 느꼈습니다. 이후 프로젝트 개발에서도 코드 개발 전 토큰부터 정리하고 시작하려 합니다.",
     },
-    videoUrl: "https://youtu.be/uhc24gDsxKU",
+    videoUrl: "https://www.youtube.com/embed/uhc24gDsxKU",
     thumbnail: "/images/portfolio.png",
   },
 ];
