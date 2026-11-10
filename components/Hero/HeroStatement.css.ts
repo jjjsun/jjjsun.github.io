@@ -31,7 +31,7 @@ export const title = style({
 
 export const lead = style({
   maxWidth: "760px",
-  fontSize: vars.font.size.titleM,
+  fontSize: vars.font.size.lead,
   lineHeight: vars.font.lineHeight.body,
   color: vars.color.text.body,
   textWrap: "pretty",

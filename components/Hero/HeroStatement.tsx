@@ -16,7 +16,7 @@ export default function HeroStatement() {
       <div className={styles.head}>
         <h2 className={styles.title}>Fast Follower에서 First Mover로</h2>
         <p className={styles.lead}>
-          사용자가 불편해하는 곳을 먼저 찾고, 먼저 움직이는 프론트엔드 개발자 박재선입니다.
+          사용자가 불편해하는 곳을 먼저 찾고, 먼저 움직이는 박재선입니다.
         </p>
       </div>
       <div className={styles.hanjaRow}>
