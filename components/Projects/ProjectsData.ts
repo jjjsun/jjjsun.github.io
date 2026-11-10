@@ -139,8 +139,7 @@ export const PROJECTS: IProject[] = [
       "Github Pages",
       "Github Actions",
     ],
-    description:
-      "Frontend Developer 박재선의 소개 포트폴리오 사이트입니다. 개발 경험과 같이 어떤 개발자인지 확인할 수 있습니다.",
+    description: "기획, 디자인, 개발까지 직접 만든 박재선의 포트폴리오입니다.",
     links: [
       { label: "GitHub", href: "https://github.com/jjjsun/jjjsun.github.io", icon: "github" },
       { label: "LIVE DEMO", href: "https://jjjsun.github.io/", icon: "demo" },
