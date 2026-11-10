@@ -25,6 +25,10 @@ const HOLD = 0.6;
 const FADE = 0.4;
 const OFFSET_Y = 60;
 
+const closeOpenDialogs = (root: HTMLElement) => {
+  root.querySelectorAll<HTMLDialogElement>("dialog[open]").forEach((dialog) => dialog.close());
+};
+
 export default function ProjectsPin({ header, names, children }: TProjectsPinProps) {
   const roofRef = useRef<HTMLElement>(null);
   const triggerRef = useRef<ScrollTrigger | null>(null);
@@ -38,6 +42,8 @@ export default function ProjectsPin({ header, names, children }: TProjectsPinPro
 
       const mm = gsap.matchMedia();
       mm.add(styles.PROJECTS_PINNED_QUERY, () => {
+        closeOpenDialogs(root);
+
         const items = Array.from(root.querySelectorAll<HTMLElement>(`.${styles.item}`));
         const count = items.length;
         const setActiveItem = (index: number) => {
@@ -79,6 +85,7 @@ export default function ProjectsPin({ header, names, children }: TProjectsPinPro
 
         triggerRef.current = tl.scrollTrigger ?? null;
         return () => {
+          closeOpenDialogs(root);
           triggerRef.current = null;
           items.forEach((item) => item.removeAttribute("inert"));
           setActiveIndex(0);
