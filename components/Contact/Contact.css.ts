@@ -3,7 +3,6 @@ import { style } from "@vanilla-extract/css";
 import { vars } from "@/styles/theme.css";
 
 export const contact = style({
-  background: vars.gradient.contact,
   padding: `${vars.layout.sectionY} ${vars.layout.pageX} ${vars.space[40]}`,
 });
 

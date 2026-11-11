@@ -99,10 +99,7 @@ export const vars = createGlobalTheme(":root", {
   },
 
   gradient: {
-    heroSky: "linear-gradient(180deg,#e2ebf6 0%,#d6e6f8 22%,#c4dcf5 100%)",
-    about: "linear-gradient(180deg,#c4dcf5 0%,#d9e5f4 30%,#e1eaf5 100%)",
-    faq: "linear-gradient(180deg,#e1eaf5,#d6e6f8)",
-    contact: "linear-gradient(180deg,#d6e6f8,#c4dcf5)",
+    page: "linear-gradient(180deg,#e2ebf6 0%,#d6e6f8 22%,#c4dcf5 100%)",
     nameText: "linear-gradient(100deg,#2a5bd7 0%,#5b8ff0 55%,#7fb2ee 100%)",
     pillSurface: "linear-gradient(135deg,rgba(255,255,255,.85),rgba(214,231,250,.75))",
     headerFade:
