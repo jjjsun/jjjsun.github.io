@@ -1,4 +1,5 @@
-import Reveal from "../Reveal/Reveal";
+import Reveal from "@/components/Reveal/Reveal";
+
 import * as styles from "./AboutItems.css";
 
 interface IAboutItem {
