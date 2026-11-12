@@ -1,4 +1,4 @@
-import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
+import Reveal from "@/components/Reveal/Reveal";
 
 import * as styles from "./AboutItems.css";
 
@@ -40,14 +40,14 @@ export default function AboutItems() {
     <ul className={styles.list}>
       {ABOUT_ITEMS.map(({ label, big, fact, src }) => (
         <li key={label}>
-          <ScrollReveal className={styles.item}>
+          <Reveal className={styles.item}>
             <span className={styles.label}>{label}</span>
             <div className={styles.body}>
               <p className={styles.big}>{big}</p>
               <p className={styles.fact}>{fact}</p>
               <p className={styles.src}>{src}</p>
             </div>
-          </ScrollReveal>
+          </Reveal>
         </li>
       ))}
     </ul>
