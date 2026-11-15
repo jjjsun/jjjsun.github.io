@@ -5,7 +5,6 @@ import { breakpoint, vars } from "@/styles/theme.css";
 const mobile = `screen and (max-width: ${breakpoint.mobile})`;
 
 export const faq = style({
-  background: vars.gradient.faq,
   padding: `${vars.layout.sectionY} ${vars.layout.pageX}`,
 });
 

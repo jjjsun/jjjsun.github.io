@@ -5,8 +5,13 @@ import { ITimelineItem } from "./TimelineItem";
 import TimelineList from "./TimelineList";
 
 const TIMELINE: ITimelineItem[] = [
+  { period: "2026.11", title: "캡스톤디자인 졸업작품 우수상(WhereYouAd)", category: "수상 & 자격" },
   { period: "2026.09", title: "TOEIC Speaking IH 취득", category: "수상 & 자격" },
-  { period: "2026.05 - 2026.08", title: "모두의 창업 1기 선정", category: "수상 & 자격" },
+  {
+    period: "2026.05 - 2026.08",
+    title: "모두의 창업 1기 선정(WhereYouAd)",
+    category: "수상 & 자격",
+  },
   { period: "2026.05", title: "정보처리기사 필기 합격", category: "수상 & 자격" },
   { period: "2026.05", title: "상명 창업아이디어경진대회 대상(PT발표)", category: "수상 & 자격" },
   { period: "2026.01 - 2026.02", title: "Eatsfine 프로젝트", category: "Projects & 활동" },

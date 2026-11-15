@@ -20,7 +20,8 @@ globalStyle("body", {
   fontSize: vars.font.size.md,
   lineHeight: vars.font.lineHeight.body,
   color: vars.color.text.strong,
-  background: vars.color.bg.page,
+  background: vars.gradient.page,
+  backgroundAttachment: "fixed",
   WebkitFontSmoothing: "antialiased",
   paddingTop: vars.layout.headerHeight,
 });

@@ -9,7 +9,6 @@ const pinned = `screen and ${PINNED_QUERY}`;
 
 export const hero = style({
   "position": "relative",
-  "background": vars.gradient.heroSky,
   "@media": {
     [pinned]: { height: "100vh", overflow: "hidden" },
   },
@@ -20,6 +19,9 @@ export const sky = style({
   inset: 0,
   overflow: "hidden",
   pointerEvents: "none",
+  //블롭이 Hero경계에서 직선으로 잘려서 경계선처럼 보이는거 차단하기 위해 페이드 추가
+  maskImage: "linear-gradient(to bottom, transparent, black 20%, black 70%, transparent)",
+  WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20%, black 70%, transparent)",
 });
 
 const blob = style({

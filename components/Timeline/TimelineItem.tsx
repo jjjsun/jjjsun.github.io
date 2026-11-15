@@ -18,8 +18,9 @@ type TTimelineItemProps = {
 };
 
 const OFFSET_X = -24;
-const DURATION = 0.6;
+const DURATION = 0.5;
 const STAGGER = 0.07;
+const MAX_STAGGER_INDEX = 5;
 const EASE = [0.2, 0.7, 0.2, 1] as const;
 
 export default function TimelineItem({ item, index }: TTimelineItemProps) {
@@ -31,7 +32,11 @@ export default function TimelineItem({ item, index }: TTimelineItemProps) {
       initial={{ opacity: 0, x: OFFSET_X }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-      transition={{ duration: DURATION, ease: EASE, delay: index * STAGGER }}
+      transition={{
+        duration: DURATION,
+        ease: EASE,
+        delay: Math.min(index, MAX_STAGGER_INDEX) * STAGGER,
+      }}
     >
       <span className={styles.dot} />
       <span className={styles.period}>{period}</span>
