@@ -34,11 +34,6 @@ export const vars = createGlobalTheme(":root", {
       onDark: "#e9eff8",
     },
     bg: {
-      page: "#e1eaf5",
-      sky100: "#e2ebf6",
-      sky200: "#d9e5f4",
-      sky300: "#d6e6f8",
-      sky400: "#c4dcf5",
       surface: "#f6f8fb",
       header: "rgba(230,238,248,.8)",
       mediaDark: "#0f1726",
