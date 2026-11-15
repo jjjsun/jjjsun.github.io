@@ -11,7 +11,6 @@ export const PROJECTS_PINNED_QUERY = `${PINNED_QUERY} and (min-height: ${MIN_PIN
 const pinned = `screen and ${PROJECTS_PINNED_QUERY}`;
 
 export const projects = style({
-  "background": vars.color.bg.page,
   "padding": `${vars.layout.sectionY} ${vars.layout.pageX}`,
   "@media": {
     [pinned]: {

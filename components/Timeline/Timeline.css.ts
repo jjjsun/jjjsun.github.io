@@ -3,7 +3,6 @@ import { style } from "@vanilla-extract/css";
 import { vars } from "@/styles/theme.css";
 
 export const timeline = style({
-  background: vars.color.bg.page,
   padding: `${vars.layout.sectionY} ${vars.layout.pageX}`,
 });
 

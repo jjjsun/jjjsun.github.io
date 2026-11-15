@@ -3,7 +3,6 @@ import { style } from "@vanilla-extract/css";
 import { vars } from "@/styles/theme.css";
 
 export const about = style({
-  background: vars.gradient.about,
   padding: `${vars.layout.sectionY} ${vars.layout.pageX}`,
 });
 
