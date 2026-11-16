@@ -20,6 +20,11 @@ export const label = style({
   color: vars.color.brand.primary,
 });
 
+export const labelKo = style({
+  marginLeft: vars.space[8],
+  fontWeight: vars.font.weight.medium,
+});
+
 export const title = style({
   fontSize: vars.font.size.h2,
   fontWeight: vars.font.weight.medium,

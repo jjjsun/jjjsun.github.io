@@ -22,8 +22,10 @@ const CONTACTS: IContact[] = [
 export default function ContactCards() {
   return (
     <div className={styles.contactCards}>
-      <p className={styles.label}>CONTACT • 연락</p>
-      <h2 className={styles.title}>제가 더 궁금하시다면, 편하게 연락 주세요</h2>
+      <p className={styles.label}>
+        CONTACT <span className={styles.labelKo}>연락</span>
+      </p>
+      <h2 className={styles.title}>더 자세한 내용은 아래에서 확인해 주세요</h2>
       <ul className={styles.list}>
         {CONTACTS.map((contact) => (
           <ContactCard key={contact.id} contact={contact} />

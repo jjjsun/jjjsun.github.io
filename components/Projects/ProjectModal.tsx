@@ -53,7 +53,7 @@ export default function ProjectModal({ project }: TProjectModalProps) {
     dialogRef.current?.close();
   };
 
-  //ESE와 닫기 버튼 둘다 closed 이벤트로 모이니까 여기서만 내림
+  //ESC와 닫기 버튼 둘다 closed 이벤트로 모이니까 여기서만 내림
   const handleDialogClose = () => setIsOpen(false);
 
   const handleDialogClick = (e: React.MouseEvent<HTMLDialogElement>) => {
@@ -123,9 +123,8 @@ export default function ProjectModal({ project }: TProjectModalProps) {
         </div>
         <div ref={bodyRef} className={styles.body}>
           <p className={cardStyles.meta}>
-            <span className={cardStyles.period}>
-              {period} • {org}
-            </span>
+            <span className={cardStyles.period}>{period}</span>
+            <span className={cardStyles.period}>{org}</span>
           </p>
           <h2 id={titleId} className={cardStyles.name}>
             {name}

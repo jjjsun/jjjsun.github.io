@@ -20,9 +20,8 @@ export default function ProjectCard({ project, index, total }: TProjectCardProps
           <span className={styles.order}>
             {pad(index + 1)} / {pad(total)}
           </span>
-          <span className={styles.period}>
-            {period} • {org}
-          </span>
+          <span className={styles.period}>{period}</span>
+          <span className={styles.period}>{org}</span>
         </p>
         <ProjectModal project={project} />
         <p className={styles.summary}>{summary}</p>
