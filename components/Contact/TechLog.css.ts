@@ -23,6 +23,11 @@ export const label = style({
   color: vars.color.brand.primary,
 });
 
+export const labelKo = style({
+  marginLeft: vars.space[8],
+  fontWeight: vars.font.weight.medium,
+});
+
 export const button = style({
   display: "inline-flex",
   alignItems: "center",

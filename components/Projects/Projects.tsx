@@ -9,8 +9,10 @@ export default function Projects() {
       names={PROJECTS.map((project) => project.name)}
       header={
         <header className={styles.header}>
-          <p className={styles.label}>PROJECTS • 프로젝트</p>
-          <h1 className={styles.title}>코드로 남긴 이야기</h1>
+          <p className={styles.label}>
+            PROJECTS <span className={styles.labelKo}>프로젝트</span>
+          </p>
+          <h1 className={styles.title}>코드로 남긴 기록</h1>
         </header>
       }
     >

@@ -220,6 +220,8 @@ export const mediaInfoText = style({
   minWidth: 0,
   wordBreak: "keep-all",
   overflowWrap: "break-word",
+  textWrap: "pretty",
+  whiteSpace: "pre-line",
 });
 
 export const body = style({
@@ -274,6 +276,7 @@ export const itemText = style({
   color: vars.color.text.body,
   wordBreak: "keep-all",
   overflowWrap: "break-word",
+  textWrap: "pretty",
   whiteSpace: "pre-line",
 });
 

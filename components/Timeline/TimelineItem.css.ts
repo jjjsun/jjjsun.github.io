@@ -9,9 +9,9 @@ const mobile = `screen and (max-width: ${breakpoint.mobile})`;
 const accent = createVar();
 
 const CATEGORY_COLOR: Record<TTimelineCategory, string> = {
-  "수상 & 자격": vars.color.category.awards.main,
-  "Projects & 활동": vars.color.category.projects.main,
-  "Work": vars.color.category.work.main,
+  Activities: vars.color.category.projects.main,
+  Awards: vars.color.category.awards.main,
+  Work: vars.color.category.work.main,
 };
 
 export const categoryColor = styleVariants(CATEGORY_COLOR, (color) => ({
