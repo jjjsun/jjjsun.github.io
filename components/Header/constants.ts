@@ -7,7 +7,7 @@ export interface IMenuItem {
 export const MENU_ITEMS: IMenuItem[] = [
   { id: "about", label: "About", ko: "소개" },
   { id: "projects", label: "Projects", ko: "프로젝트" },
-  { id: "timeline", label: "Timeline", ko: "연혁" },
+  { id: "timeline", label: "Timeline", ko: "이력" },
   { id: "faq", label: "FAQ", ko: "인터뷰" },
   { id: "contact", label: "Contact", ko: "연락" },
 ];

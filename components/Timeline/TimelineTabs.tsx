@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { TTimelineFilter } from "./TimelineItem";
 import * as styles from "./TimelineTabs.css";
 
-const FILTERS: TTimelineFilter[] = ["All", "Projects & 활동", "수상 & 자격", "Work"];
+const FILTERS: TTimelineFilter[] = ["All", "Activities", "Awards", "Work"];
 
 type TTimelineTabsProps = {
   selected: TTimelineFilter;

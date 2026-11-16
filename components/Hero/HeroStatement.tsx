@@ -16,7 +16,7 @@ export default function HeroStatement() {
       <div className={styles.head}>
         <h2 className={styles.title}>Fast Follower에서 First Mover로</h2>
         <p className={styles.lead}>
-          사용자가 불편해하는 곳을 먼저 찾고, 먼저 움직이는 박재선입니다.
+          사용자의 시선에서 불편한 곳을 먼저 찾고, 먼저 움직이는 박재선입니다.
         </p>
       </div>
       <div className={styles.hanjaRow}>
@@ -26,7 +26,7 @@ export default function HeroStatement() {
             <li key={char} className={styles.meaning}>
               <span className={styles.bar} />
               <span className={styles.hun}>
-                {char} • {hun}
+                {char} {hun}
               </span>
               <span className={styles.desc}>{meaning}</span>
             </li>
@@ -34,7 +34,7 @@ export default function HeroStatement() {
         </ul>
       </div>
       <p className={styles.closing}>
-        하면 된다, 할 수 있다, 나는 된다. <span className={styles.accent}>Just do IT!</span>
+        하면 된다, 할 수 있다. <span className={styles.accent}>Just do IT!</span>
       </p>
     </div>
   );

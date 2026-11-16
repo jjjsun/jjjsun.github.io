@@ -5,10 +5,10 @@ import { vars } from "@/styles/theme.css";
 import { TTimelineFilter } from "./TimelineItem";
 
 const FILTER_GRANDIENT: Record<TTimelineFilter, string> = {
-  "All": vars.color.category.all.gradient,
-  "Projects & 활동": vars.color.category.projects.gradient,
-  "수상 & 자격": vars.color.category.awards.gradient,
-  "Work": vars.color.category.work.gradient,
+  All: vars.color.category.all.gradient,
+  Activities: vars.color.category.projects.gradient,
+  Awards: vars.color.category.awards.gradient,
+  Work: vars.color.category.work.gradient,
 };
 
 export const indicatorColor = styleVariants(FILTER_GRANDIENT, (gradient) => ({

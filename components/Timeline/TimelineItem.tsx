@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 
 import * as styles from "./TimelineItem.css";
 
-export type TTimelineCategory = "수상 & 자격" | "Projects & 활동" | "Work";
+export type TTimelineCategory = "Awards" | "Activities" | "Work";
 export type TTimelineFilter = "All" | TTimelineCategory;
 
 export interface ITimelineItem {
