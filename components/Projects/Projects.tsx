@@ -10,7 +10,7 @@ export default function Projects() {
       header={
         <header className={styles.header}>
           <p className={styles.label}>
-            PROJECTS<span className={styles.labelKo}>프로젝트</span>
+            PROJECTS <span className={styles.labelKo}>프로젝트</span>
           </p>
           <h1 className={styles.title}>코드로 남긴 기록</h1>
         </header>

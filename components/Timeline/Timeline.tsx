@@ -56,7 +56,7 @@ export default function Timeline() {
         <TimelineList items={TIMELINE}>
           <header className={styles.header}>
             <p className={styles.label}>
-              TIMELINE<span className={styles.labelKo}>이력</span>
+              TIMELINE <span className={styles.labelKo}>이력</span>
             </p>
             <h2 className={styles.title}>2022년부터 지금까지</h2>
           </header>

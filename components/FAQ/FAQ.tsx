@@ -39,7 +39,7 @@ export default function FAQ() {
       <Reveal className={styles.container}>
         <header className={styles.header}>
           <p className={styles.label}>
-            FAQ<span className={styles.labelKo}>인터뷰</span>
+            FAQ <span className={styles.labelKo}>인터뷰</span>
           </p>
           <h2 className={styles.title}>코드 밖의 박재선</h2>
           <p className={styles.description}>기술 말고, 저라는 사람에 대한 질문이에요</p>
