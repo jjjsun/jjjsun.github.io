@@ -10,7 +10,6 @@ import * as styles from "./Hero.css";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type THeroScrollProps = {
-  children: React.ReactNode;
   intro: React.ReactNode;
   statement: React.ReactNode;
 };
@@ -19,7 +18,7 @@ const PIN_LENGTH = "+=140%";
 const INTRO = { start: 0.22, duration: 0.3, y: -250 };
 const STATEMENT = { start: 0.42, duration: 0.36, y: 330 };
 
-export default function HeroScroll({ children, intro, statement }: THeroScrollProps) {
+export default function HeroScroll({ intro, statement }: THeroScrollProps) {
   const rootRef = useRef<HTMLElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
   const statementRef = useRef<HTMLDivElement>(null);
@@ -66,7 +65,6 @@ export default function HeroScroll({ children, intro, statement }: THeroScrollPr
 
   return (
     <section ref={rootRef} className={styles.hero}>
-      {children}
       <div className={styles.content}>
         <div ref={introRef} className={styles.introLayer}>
           {intro}
