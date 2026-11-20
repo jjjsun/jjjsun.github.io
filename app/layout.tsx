@@ -8,7 +8,7 @@ import Header from "@/components/Header/Header";
 import { inter, pretendard } from "./fonts";
 
 export const metadata: Metadata = {
-  title: "박재선 | 프론트엔드, IT 기획 ",
+  title: "박재선 | 프론트엔드 개발자 ",
   description: "사용자 문제를 찾아 기획하고 구현하는 박재선의 포트폴리오",
 };
 
