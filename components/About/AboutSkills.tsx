@@ -1,3 +1,5 @@
+import TechBadgeList from "@/components/TechBadge/TechBadgeList";
+
 import * as styles from "./AboutSkills.css";
 
 interface ISkillGroup {
@@ -20,7 +22,9 @@ export default function AboutSkills() {
         {SKILL_GROUPS.map(({ label, items }) => (
           <div key={label} className={styles.row}>
             <dt className={styles.label}>{label}</dt>
-            <dd className={styles.text}>{items.join(" • ")}</dd>
+            <dd>
+              <TechBadgeList items={items} />
+            </dd>
           </div>
         ))}
       </dl>
