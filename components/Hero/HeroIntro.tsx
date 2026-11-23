@@ -3,7 +3,7 @@ import * as styles from "./HeroIntro.css";
 export default function HeroIntro() {
   return (
     <div className={styles.intro}>
-      <p className={styles.label}>FRONTEND | IT 기획</p>
+      <p className={styles.label}>FRONTEND DEVELOPER</p>
       <h1 className={styles.title}>
         <span className={styles.name}>박재선</span>
         <span className={styles.nameEn}>PARK JAESEON</span>
