@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useId, useRef, useState } from "react";
 
+import TechBadgeList from "../TechBadge/TechBadgeList";
 import * as cardStyles from "./ProjectCard.css";
 import ProjectDetailSection from "./ProjectDetailSection";
 import * as styles from "./ProjectModal.css";
@@ -117,7 +118,9 @@ export default function ProjectModal({ project }: TProjectModalProps) {
             </div>
             <div className={styles.mediaInfoRow}>
               <dt className={styles.mediaInfoLabel}>기술 스택</dt>
-              <dd className={styles.mediaInfoText}>{stack.join(" • ")}</dd>
+              <dd className={styles.mediaInfoText}>
+                <TechBadgeList items={stack} />
+              </dd>
             </div>
           </dl>
         </div>

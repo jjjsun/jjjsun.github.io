@@ -39,10 +39,3 @@ export const label = style({
     [mobile]: { width: "100%" },
   },
 });
-
-export const text = style({
-  fontSize: vars.font.size.md,
-  fontWeight: vars.font.weight.medium,
-  lineHeight: vars.font.lineHeight.body,
-  color: vars.color.text.strong,
-});

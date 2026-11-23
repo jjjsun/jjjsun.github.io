@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import TechBadgeList from "../TechBadge/TechBadgeList";
 import * as styles from "./ProjectCard.css";
 import ProjectModal from "./ProjectModal";
 import { IProject } from "./types";
@@ -36,7 +37,9 @@ export default function ProjectCard({ project, index, total }: TProjectCardProps
           </div>
           <div className={styles.infoRow}>
             <dt className={styles.infoLabel}>기술 스택</dt>
-            <dd className={styles.infoText}>{stack.join(" • ")}</dd>
+            <dd className={styles.infoText}>
+              <TechBadgeList items={stack} />
+            </dd>
           </div>
         </dl>
         <p className={styles.hint}>카드를 누르면 상세 내용을 볼 수 있어요</p>
