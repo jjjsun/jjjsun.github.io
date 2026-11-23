@@ -106,6 +106,8 @@ export const vars = createGlobalTheme(":root", {
       linear: "#5e6ad2",
       figma: "#f24e1e",
       githubActions: "#2088ff",
+      vanillaExtract: "#f786ad",
+      motion: "#0055ff",
     },
   },
 

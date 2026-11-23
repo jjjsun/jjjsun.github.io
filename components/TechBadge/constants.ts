@@ -23,4 +23,6 @@ export const TECH: Record<string, ITech> = {
   "Github Actions": { icon: "githubactions", color: tech.githubActions },
   "Linear": { icon: "linear", color: tech.linear },
   "Figma": { icon: "figma", color: tech.figma },
+  "vanilla-extract": { icon: "vanillaextract", color: tech.vanillaExtract },
+  "Motion": { icon: "framer", color: tech.motion },
 };
