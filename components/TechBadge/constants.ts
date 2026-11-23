@@ -16,7 +16,7 @@ export const TECH: Record<string, ITech> = {
   "TailwindCSS": { icon: "tailwindcss", color: tech.tailwind },
   "Tanstack Query": { icon: "reactquery", color: tech.tanstack },
   "Storybook": { icon: "storybook", color: tech.storybook },
-  "GSAP": { icon: "greensock", color: tech.gsap },
+  "GSAP": { icon: "gsap", color: tech.gsap },
   "Git": { icon: "git", color: tech.git },
   "GitHub": { icon: "github", color: tech.github },
   "Github Pages": { icon: "github", color: tech.github },
