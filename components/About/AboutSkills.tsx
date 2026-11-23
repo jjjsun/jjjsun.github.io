@@ -1,4 +1,5 @@
-import TechBadgeList from "../TechBadge/TechBadgeList";
+import TechBadgeList from "@/components/TechBadge/TechBadgeList";
+
 import * as styles from "./AboutSkills.css";
 
 interface ISkillGroup {

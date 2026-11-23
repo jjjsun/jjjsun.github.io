@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useId, useRef, useState } from "react";
 
-import TechBadgeList from "../TechBadge/TechBadgeList";
+import TechBadgeList from "@/components/TechBadge/TechBadgeList";
+
 import * as cardStyles from "./ProjectCard.css";
 import ProjectDetailSection from "./ProjectDetailSection";
 import * as styles from "./ProjectModal.css";

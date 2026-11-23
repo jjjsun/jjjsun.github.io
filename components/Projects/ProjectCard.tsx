@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-import TechBadgeList from "../TechBadge/TechBadgeList";
+import TechBadgeList from "@/components/TechBadge/TechBadgeList";
+
 import * as styles from "./ProjectCard.css";
 import ProjectModal from "./ProjectModal";
 import { IProject } from "./types";
